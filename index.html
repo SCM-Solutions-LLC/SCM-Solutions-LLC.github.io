@@ -44,6 +44,7 @@
             --white: #FFFFFF;
             --ember: #E8622B;
             --ember-light: #F07A47;
+            --ember-hover: #D4682F;
             --ember-glow: rgba(232, 98, 43, 0.08);
             --sage: #10B981;
             --sage-dark: #059669;
@@ -61,7 +62,7 @@
             line-height: 1.6;
         }
 
-        /* ─── NAV ─── */
+        /* NAV */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
             padding: 1rem 2.5rem;
@@ -95,7 +96,7 @@
             background: var(--slate-800); margin: 5px 0;
         }
 
-        /* ─── HERO ─── */
+        /* HERO */
         .hero {
             background: var(--slate-900);
             position: relative; overflow: hidden;
@@ -129,7 +130,7 @@
             color: var(--slate-400); max-width: 600px;
         }
 
-        /* ─── SHARED ─── */
+        /* SHARED */
         .stag {
             font-size: 0.7rem; font-weight: 600;
             letter-spacing: 2.2px; text-transform: uppercase;
@@ -145,7 +146,7 @@
             color: var(--slate-900);
         }
 
-        /* ─── SERVICES ─── */
+        /* SERVICES */
         .services {
             padding: 5rem 2.5rem; max-width: 1040px; margin: 0 auto;
         }
@@ -177,7 +178,7 @@
             color: var(--slate-600); font-weight: 400;
         }
 
-        /* ─── RESULTS ─── */
+        /* RESULTS */
         .results {
             background: var(--slate-50);
             border-top: 1px solid var(--slate-200);
@@ -215,7 +216,7 @@
             color: var(--slate-600);
         }
 
-        /* ─── STEADIDAY ─── */
+        /* STEADIDAY */
         .product {
             padding: 5rem 2.5rem;
             max-width: 1040px; margin: 0 auto;
@@ -259,7 +260,7 @@
             border-radius: 24px;
         }
 
-        /* ─── ABOUT ─── */
+        /* ABOUT */
         .about-band {
             background: var(--slate-900);
         }
@@ -275,7 +276,7 @@
             font-weight: 300;
         }
 
-        /* ─── CONTACT ─── */
+        /* CONTACT */
         .contact-band {
             border-top: 1px solid var(--slate-200);
             background: var(--slate-50);
@@ -289,15 +290,21 @@
             font-size: 0.93rem; line-height: 1.75;
             color: var(--slate-600); max-width: 480px;
         }
-        .contact .temp {
+        .contact .email-line {
             font-size: 1.05rem; color: var(--slate-800);
-            font-style: normal; margin-top: 1.5rem;
-            font-weight: 500;
+            margin-top: 1.5rem; font-weight: 500;
         }
-        .contact .temp a { color: var(--ember); text-decoration: none; border-bottom: 1.5px solid var(--ember); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
-        .contact .temp a:hover { color: var(--ember-hover); border-color: var(--ember-hover); }
+        .contact .email-line a {
+            color: var(--ember); text-decoration: none;
+            border-bottom: 1.5px solid var(--ember);
+            padding-bottom: 1px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .contact .email-line a:hover {
+            color: var(--ember-hover); border-color: var(--ember-hover);
+        }
 
-        /* ─── FOOTER ─── */
+        /* FOOTER */
         footer {
             background: var(--slate-900);
             padding: 2.5rem 2.5rem;
@@ -324,14 +331,14 @@
             font-size: 0.75rem; color: var(--slate-600);
         }
 
-        /* ─── FADE ─── */
+        /* FADE */
         .fi {
             opacity: 0; transform: translateY(14px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         .fi.vis { opacity: 1; transform: translateY(0); }
 
-        /* ─── RESPONSIVE ─── */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             .svc-grid { grid-template-columns: 1fr; }
             .res-grid { grid-template-columns: repeat(2, 1fr); }
@@ -375,16 +382,14 @@
     <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <div class="hero-inner">
-        <span class="tag fi">Healthcare Consulting & Technology &middot; Virginia</span>
+        <span class="tag fi">Healthcare Consulting &amp; Technology &middot; Virginia</span>
         <h1 class="fi">Helping health systems improve operations and building technology that makes daily life easier.</h1>
-        <p class="lede fi">SCM Solutions LLC is a Virginia-based healthcare consulting and technology firm with 8+ years of experience behind it — leading enterprise programs across health systems and managed care organizations, and developing digital health products.</p>
+        <p class="lede fi">SCM Solutions LLC is a Virginia-based healthcare consulting and technology firm with 8+ years of experience behind it &mdash; leading enterprise programs across health systems and managed care organizations, and developing digital health products.</p>
     </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="services">
     <div class="head fi">
         <p class="stag ember">What We Do</p>
@@ -398,33 +403,32 @@
         </div>
         <div class="svc fi">
             <p class="num">02</p>
-            <h3>Program & Portfolio Management</h3>
+            <h3>Program &amp; Portfolio Management</h3>
             <p>Cross-functional program governance, multi-initiative portfolio management, vendor coordination, executive reporting, and operational readiness for acquisitions, integrations, and large-scale organizational change.</p>
         </div>
         <div class="svc fi">
             <p class="num">03</p>
-            <h3>Health Equity & Population Health</h3>
+            <h3>Health Equity &amp; Population Health</h3>
             <p>Social determinants of health screening implementation, health equity strategy, disparity analysis, SDOH workflow design in partnership with EHR and IT teams, and community health platform deployment.</p>
         </div>
         <div class="svc fi">
             <p class="num">04</p>
-            <h3>Clinical Workflow & EHR Integration</h3>
+            <h3>Clinical Workflow &amp; EHR Integration</h3>
             <p>Clinician onboarding standardization, third-party vendor integration, provider data management, and system-wide process standardization across multi-hospital environments. Close collaboration with IT and Epic teams to align operational needs with EHR configuration.</p>
         </div>
         <div class="svc fi">
             <p class="num">05</p>
-            <h3>Quality & Regulatory</h3>
+            <h3>Quality &amp; Regulatory</h3>
             <p>Clinical variation reduction, quality initiative management, NCQA accreditation support, OSHA compliance, and risk and safety operational coordination.</p>
         </div>
         <div class="svc fi">
             <p class="num">06</p>
             <h3>Digital Health Products</h3>
-            <p>Concept-to-launch development of health-focused applications, grounded in accessibility, privacy, and genuine usability — starting with the populations most often overlooked by mainstream tech.</p>
+            <p>Concept-to-launch development of health-focused applications, grounded in accessibility, privacy, and genuine usability &mdash; starting with the populations most often overlooked by mainstream tech.</p>
         </div>
     </div>
 </section>
 
-<!-- RESULTS -->
 <section class="results" id="results">
     <div class="results-inner">
         <div class="head fi">
@@ -456,7 +460,6 @@
     </div>
 </section>
 
-<!-- STEADIDAY -->
 <section class="product" id="steadiday">
     <div class="fi">
         <p class="stag ember">Our Product</p>
@@ -478,7 +481,6 @@
     </div>
 </section>
 
-<!-- ABOUT -->
 <div class="about-band" id="about">
     <section class="about">
         <div class="fi">
@@ -487,21 +489,20 @@
         </div>
         <div class="about-body fi">
             <p>SCM Solutions LLC was founded in Virginia to bring together two things that too often stay separate in healthcare: deep operational experience inside health systems and the ability to build technology that actually works for people.</p>
-            <p>The firm is built on 8+ years of hands-on experience leading enterprise programs across large health systems and managed care organizations — managing complex portfolios that cut across population health, quality, pharmacy operations, health equity, EHR-related initiatives, and large-scale organizational change.</p>
-            <p>That experience includes work at the intersection of technology and operations — implementing patient safety reporting systems, integrating third-party vendors into EHR platforms, standing up social determinants of health screening workflows, and supporting mass vaccination operations that served thousands of patients daily.</p>
-            <p>SteadiDay grew out of the same perspective. Older adults were underserved by the health technology market, so SCM Solutions built something for them — a single app that handles medications, tasks, health tracking, safety, and everyday utilities without requiring an account or a technical background.</p>
+            <p>The firm is built on 8+ years of hands-on experience leading enterprise programs across large health systems and managed care organizations &mdash; managing complex portfolios that cut across population health, quality, pharmacy operations, health equity, EHR-related initiatives, and large-scale organizational change.</p>
+            <p>That experience includes work at the intersection of technology and operations &mdash; implementing patient safety reporting systems, integrating third-party vendors into EHR platforms, standing up social determinants of health screening workflows, and supporting mass vaccination operations that served thousands of patients daily.</p>
+            <p>SteadiDay grew out of the same perspective. Older adults were underserved by the health technology market, so SCM Solutions built something for them &mdash; a single app that handles medications, tasks, health tracking, safety, and everyday utilities without requiring an account or a technical background.</p>
         </div>
     </section>
 </div>
 
-<!-- CONTACT -->
 <div class="contact-band" id="contact">
     <section class="contact">
         <div class="fi">
             <p class="stag ember">Get In Touch</p>
             <h2 class="sh">Let's talk.</h2>
             <p>Have questions about SteadiDay, interested in learning more, or want to discuss a potential collaboration? Get in touch.</p>
-            <p class="temp"><a href="/cdn-cgi/l/email-protection#12717d7c667371665261717f617d7e67667b7d7c613c7d6075"><span class="__cf_email__" data-cfemail="54373b3a2035372014273739273b3821203d3b3a277a3b2633">[email&#160;protected]</span></a></p>
+            <p class="email-line"><a href="mailto&#58;contact&#64;scmsolutions&#46;org">contact&#64;scmsolutions&#46;org</a></p>
         </div>
     </section>
 </div>
@@ -520,9 +521,17 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const nb=document.getElementById('nb');
-window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>40));
-const hb=document.getElementById('hb'),nl=document.getElementById('nl');
-hb.addEventListener('click',()=>nl.classList.toggle('open'));
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click
+<script>
+var nb=document.getElementById('nb');
+window.addEventListener('scroll',function(){nb.classList.toggle('scrolled',window.scrollY>40)});
+var hb=document.getElementById('hb'),nl=document.getElementById('nl');
+hb.addEventListener('click',function(){nl.classList.toggle('open')});
+var links=nl.querySelectorAll('a');
+for(var i=0;i<links.length;i++){links[i].addEventListener('click',function(){nl.classList.remove('open')})}
+var obs=new IntersectionObserver(function(es){for(var j=0;j<es.length;j++){if(es[j].isIntersecting)es[j].target.classList.add('vis')}},{threshold:0.1});
+var fis=document.querySelectorAll('.fi');
+for(var k=0;k<fis.length;k++){obs.observe(fis[k])}
+</script>
+
+</body>
+</html>
