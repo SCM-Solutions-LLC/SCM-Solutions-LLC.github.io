@@ -244,40 +244,19 @@
 
         .phone-wrap { display: flex; justify-content: center; }
         .ph {
-            width: 230px; height: 460px;
+            width: 230px;
             border-radius: 32px;
             background: var(--slate-900);
             padding: 10px;
             box-shadow:
                 0 25px 60px rgba(15,23,42,0.12),
                 0 0 0 1px rgba(15,23,42,0.08);
+            overflow: hidden;
         }
-        .ph-screen {
-            width: 100%; height: 100%;
+        .ph-img {
+            width: 100%;
+            display: block;
             border-radius: 24px;
-            background: linear-gradient(150deg, var(--sage-dark), var(--sage));
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            gap: 0.5rem; position: relative; overflow: hidden;
-        }
-        .ph-notch {
-            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 90px; height: 22px;
-            background: var(--slate-900); border-radius: 0 0 12px 12px;
-        }
-        .ph-ico {
-            width: 52px; height: 52px; border-radius: 13px;
-            background: rgba(255,255,255,0.93);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; margin-top: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        .ph-name { font-weight: 700; font-size: 0.95rem; color: #fff; }
-        .ph-sub { font-size: 0.68rem; color: rgba(255,255,255,0.7); font-weight: 400; }
-        .ph-tags { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; padding: 0 0.8rem; margin-top: 0.6rem; }
-        .ph-tag {
-            background: rgba(255,255,255,0.18); padding: 3px 9px;
-            border-radius: 10px; font-size: 0.58rem; color: rgba(255,255,255,0.88); font-weight: 500;
         }
 
         /* ─── ABOUT ─── */
@@ -358,7 +337,7 @@
             .res-grid { grid-template-columns: repeat(2, 1fr); }
             .product { grid-template-columns: 1fr; }
             .phone-wrap { order: -1; }
-            .ph { width: 195px; height: 390px; }
+            .ph { width: 195px; }
         }
         @media (max-width: 600px) {
             nav { padding: 0.85rem 1.5rem; }
@@ -494,20 +473,7 @@
     </div>
     <div class="phone-wrap fi">
         <div class="ph">
-            <div class="ph-screen">
-                <div class="ph-notch"></div>
-                <div class="ph-ico">&#9728;&#65039;</div>
-                <div class="ph-name">SteadiDay</div>
-                <div class="ph-sub">Your Daily Companion</div>
-                <div class="ph-tags">
-                    <span class="ph-tag">Meds</span>
-                    <span class="ph-tag">Tasks</span>
-                    <span class="ph-tag">Health</span>
-                    <span class="ph-tag">SOS</span>
-                    <span class="ph-tag">Games</span>
-                    <span class="ph-tag">Tools</span>
-                </div>
-            </div>
+            <img src="assets/screenshot-home.png" alt="SteadiDay app home screen" class="ph-img">
         </div>
     </div>
 </section>
@@ -535,7 +501,7 @@
             <p class="stag ember">Get In Touch</p>
             <h2 class="sh">Let's talk.</h2>
             <p>Have questions about SteadiDay, interested in learning more, or want to discuss a potential collaboration? Get in touch.</p>
-            <p class="temp"><a href="mailto:contact@scmsolutions.org">contact@scmsolutions.org</a></p>
+            <p class="temp"><a href="/cdn-cgi/l/email-protection#12717d7c667371665261717f617d7e67667b7d7c613c7d6075"><span class="__cf_email__" data-cfemail="54373b3a2035372014273739273b3821203d3b3a277a3b2633">[email&#160;protected]</span></a></p>
         </div>
     </section>
 </div>
@@ -554,15 +520,9 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const nb=document.getElementById('nb');
 window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>40));
 const hb=document.getElementById('hb'),nl=document.getElementById('nl');
 hb.addEventListener('click',()=>nl.classList.toggle('open'));
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.1});
-document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
-</script>
-
-</body>
-</html>
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click
