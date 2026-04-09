@@ -9,12 +9,14 @@
     <meta property="og:title" content="SCM Solutions LLC — Healthcare Consulting & Technology">
     <meta property="og:description" content="Virginia-based healthcare consulting and technology. Operational improvement, health equity strategy, digital health products.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scmsolutions.org">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "SCM Solutions LLC",
+        "url": "https://scmsolutions.org",
         "description": "Healthcare consulting and technology firm based in Virginia. Services include operational improvement, clinical workflow optimization, health equity strategy, and digital health product development. Creator of SteadiDay.",
         "address": {
             "@type": "PostalAddress",
@@ -309,10 +311,12 @@
             color: var(--slate-600); max-width: 480px;
         }
         .contact .temp {
-            font-size: 0.82rem; color: var(--slate-400);
-            font-style: italic; margin-top: 1.5rem;
+            font-size: 1.05rem; color: var(--slate-800);
+            font-style: normal; margin-top: 1.5rem;
+            font-weight: 500;
         }
-        .contact .temp a { color: var(--ember); text-decoration: none; border-bottom: 1px solid var(--ember); }
+        .contact .temp a { color: var(--ember); text-decoration: none; border-bottom: 1.5px solid var(--ember); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+        .contact .temp a:hover { color: var(--ember-hover); border-color: var(--ember-hover); }
 
         /* ─── FOOTER ─── */
         footer {
@@ -531,7 +535,7 @@
             <p class="stag ember">Get In Touch</p>
             <h2 class="sh">Let's talk.</h2>
             <p>Have questions about SteadiDay, interested in learning more, or want to discuss a potential collaboration? Get in touch.</p>
-            <p class="temp">A dedicated business email is being set up. In the meantime, you can reach SCM Solutions through the contact channels at <a href="https://www.steadiday.com" target="_blank">steadiday.com</a>.</p>
+            <p class="temp"><a href="mailto:contact@scmsolutions.org">contact@scmsolutions.org</a></p>
         </div>
     </section>
 </div>
