@@ -3,26 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCM Solutions LLC — Healthcare Consulting & Technology</title>
-    <meta name="description" content="SCM Solutions LLC is a Virginia-based healthcare consulting and technology firm. Operational improvement, clinical workflow optimization, and digital health product development. Home of SteadiDay.">
+    <title>SCM Solutions LLC &mdash; Healthcare Consulting | Virginia</title>
+    <meta name="description" content="SCM Solutions LLC is a Virginia-based healthcare consulting firm helping health systems, managed care organizations, and healthcare companies improve operations, manage complex programs, and drive measurable outcomes. 8+ years of experience across multi-hospital systems, integrated health plans, and Fortune 25 managed care enterprises.">
+    <meta name="keywords" content="healthcare consulting, health system consulting, managed care consulting, operational improvement healthcare, healthcare program management, health equity consulting, clinical workflow optimization, SDOH implementation, quality improvement healthcare, healthcare EHR integration, population health consulting, Medicaid managed care, pharmacy network consulting, Virginia healthcare consulting">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SCM Solutions LLC">
+    <link rel="canonical" href="https://scmsolutions.org/">
 
-    <meta property="og:title" content="SCM Solutions LLC — Healthcare Consulting & Technology">
-    <meta property="og:description" content="Virginia-based healthcare consulting and technology. Operational improvement, health equity strategy, digital health products.">
+    <meta property="og:title" content="SCM Solutions LLC &mdash; Healthcare Consulting">
+    <meta property="og:description" content="Virginia-based healthcare consulting firm. Operational improvement, program management, health equity, clinical workflow optimization, and quality improvement for health systems and managed care organizations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scmsolutions.org">
+    <meta property="og:site_name" content="SCM Solutions LLC">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SCM Solutions LLC &mdash; Healthcare Consulting">
+    <meta name="twitter:description" content="Virginia-based healthcare consulting. Helping health systems and managed care organizations improve operations and drive measurable outcomes.">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "ProfessionalService",
         "name": "SCM Solutions LLC",
         "url": "https://scmsolutions.org",
-        "description": "Healthcare consulting and technology firm based in Virginia. Services include operational improvement, clinical workflow optimization, health equity strategy, and digital health product development. Creator of SteadiDay.",
+        "description": "Healthcare consulting firm based in Virginia helping health systems, managed care organizations, and healthcare companies improve operations, manage complex programs, and drive measurable outcomes.",
         "address": {
             "@type": "PostalAddress",
             "addressRegion": "VA",
             "addressCountry": "US"
-        }
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+        },
+        "serviceType": [
+            "Healthcare Consulting",
+            "Operational Improvement",
+            "Program Management",
+            "Health Equity Strategy",
+            "Clinical Workflow Optimization",
+            "Quality Improvement",
+            "Population Health Management",
+            "Managed Care Operations",
+            "EHR Integration Consulting",
+            "Digital Health Product Development"
+        ],
+        "knowsAbout": [
+            "Health Systems",
+            "Managed Care Organizations",
+            "Medicaid",
+            "Medicare",
+            "Population Health",
+            "Social Determinants of Health",
+            "Clinical Variation Reduction",
+            "Pharmacy Network Operations",
+            "NCQA Accreditation",
+            "Epic EHR"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SCM Solutions LLC",
+        "url": "https://scmsolutions.org"
     }
     </script>
 
@@ -45,10 +92,8 @@
             --ember: #E8622B;
             --ember-light: #F07A47;
             --ember-hover: #D4682F;
-            --ember-glow: rgba(232, 98, 43, 0.08);
             --sage: #10B981;
             --sage-dark: #059669;
-            --sage-glow: rgba(16, 185, 129, 0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -127,8 +172,16 @@
         }
         .hero .lede {
             font-size: 1.08rem; line-height: 1.8; font-weight: 300;
-            color: var(--slate-400); max-width: 600px;
+            color: var(--slate-400); max-width: 620px;
         }
+        .hero-cta {
+            display: inline-block; margin-top: 2rem;
+            padding: 0.8rem 1.75rem; border-radius: 6px;
+            background: var(--ember); color: var(--white);
+            font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; transition: background 0.2s, transform 0.2s;
+        }
+        .hero-cta:hover { background: var(--ember-hover); transform: translateY(-1px); }
 
         /* SHARED */
         .stag {
@@ -138,7 +191,6 @@
         }
         .stag.ember { color: var(--ember); }
         .stag.sage { color: var(--sage-dark); }
-        .stag.slate { color: var(--slate-400); }
         .sh {
             font-family: 'Fraunces', serif;
             font-size: clamp(1.5rem, 2.8vw, 2rem);
@@ -146,9 +198,19 @@
             color: var(--slate-900);
         }
 
+        /* WHO WE SERVE */
+        .serve {
+            padding: 5rem 2.5rem 2rem; max-width: 820px; margin: 0 auto;
+        }
+        .serve .sh { margin-bottom: 1.25rem; }
+        .serve p {
+            font-size: 0.95rem; line-height: 1.8; color: var(--slate-600);
+            max-width: 620px;
+        }
+
         /* SERVICES */
         .services {
-            padding: 5rem 2.5rem; max-width: 1040px; margin: 0 auto;
+            padding: 3rem 2.5rem 5rem; max-width: 1040px; margin: 0 auto;
         }
         .services .head { max-width: 520px; margin-bottom: 3rem; }
         .svc-grid {
@@ -197,9 +259,7 @@
             border-radius: 6px;
             transition: box-shadow 0.25s;
         }
-        .res-card:hover {
-            box-shadow: 0 4px 20px rgba(15,23,42,0.06);
-        }
+        .res-card:hover { box-shadow: 0 4px 20px rgba(15,23,42,0.06); }
         .res-card .metric {
             font-family: 'Fraunces', serif;
             font-size: 1.65rem; font-weight: 700;
@@ -216,54 +276,8 @@
             color: var(--slate-600);
         }
 
-        /* STEADIDAY */
-        .product {
-            padding: 5rem 2.5rem;
-            max-width: 1040px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 4rem; align-items: center;
-        }
-        .product p {
-            font-size: 0.95rem; line-height: 1.75;
-            color: var(--slate-600); margin-bottom: 0.85rem;
-        }
-        .product .feat {
-            font-size: 0.85rem; line-height: 1.9;
-            color: var(--slate-400);
-            margin-top: 1.25rem; padding-top: 1.25rem;
-            border-top: 1px solid var(--slate-200);
-        }
-        .plink {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            margin-top: 1.5rem;
-            font-size: 0.88rem; font-weight: 600;
-            color: var(--ember); text-decoration: none;
-            transition: color 0.2s, gap 0.2s;
-        }
-        .plink:hover { color: var(--ember-light); gap: 0.6rem; }
-        .plink svg { width: 16px; height: 16px; }
-
-        .phone-wrap { display: flex; justify-content: center; }
-        .ph {
-            width: 230px;
-            border-radius: 32px;
-            background: var(--slate-900);
-            padding: 10px;
-            box-shadow:
-                0 25px 60px rgba(15,23,42,0.12),
-                0 0 0 1px rgba(15,23,42,0.08);
-            overflow: hidden;
-        }
-        .ph-img {
-            width: 100%;
-            display: block;
-            border-radius: 24px;
-        }
-
         /* ABOUT */
-        .about-band {
-            background: var(--slate-900);
-        }
+        .about-band { background: var(--slate-900); }
         .about {
             max-width: 780px; margin: 0 auto;
             padding: 5rem 2.5rem;
@@ -276,19 +290,60 @@
             font-weight: 300;
         }
 
-        /* CONTACT */
-        .contact-band {
+        /* STEADIDAY */
+        .product-band {
             border-top: 1px solid var(--slate-200);
             background: var(--slate-50);
         }
+        .product {
+            padding: 4rem 2.5rem;
+            max-width: 1040px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 3.5rem; align-items: center;
+        }
+        .product p {
+            font-size: 0.93rem; line-height: 1.75;
+            color: var(--slate-600); margin-bottom: 0.75rem;
+        }
+        .product .feat {
+            font-size: 0.83rem; line-height: 1.85;
+            color: var(--slate-400);
+            margin-top: 1rem; padding-top: 1rem;
+            border-top: 1px solid var(--slate-200);
+        }
+        .plink {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            margin-top: 1.25rem;
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--ember); text-decoration: none;
+            transition: color 0.2s, gap 0.2s;
+        }
+        .plink:hover { color: var(--ember-light); gap: 0.6rem; }
+        .plink svg { width: 16px; height: 16px; }
+
+        .phone-wrap { display: flex; justify-content: center; }
+        .ph {
+            width: 200px;
+            border-radius: 28px;
+            background: var(--slate-900);
+            padding: 8px;
+            box-shadow: 0 20px 50px rgba(15,23,42,0.1), 0 0 0 1px rgba(15,23,42,0.06);
+            overflow: hidden;
+        }
+        .ph-img {
+            width: 100%; display: block; border-radius: 22px;
+        }
+
+        /* CONTACT */
+        .contact-band { border-top: 1px solid var(--slate-200); }
         .contact {
             max-width: 780px; margin: 0 auto;
-            padding: 4.5rem 2.5rem;
+            padding: 5rem 2.5rem;
         }
         .contact .sh { margin-bottom: 1rem; }
         .contact p {
             font-size: 0.93rem; line-height: 1.75;
-            color: var(--slate-600); max-width: 480px;
+            color: var(--slate-600); max-width: 520px;
         }
         .contact .email-line {
             font-size: 1.05rem; color: var(--slate-800);
@@ -344,7 +399,7 @@
             .res-grid { grid-template-columns: repeat(2, 1fr); }
             .product { grid-template-columns: 1fr; }
             .phone-wrap { order: -1; }
-            .ph { width: 195px; }
+            .ph { width: 180px; }
         }
         @media (max-width: 600px) {
             nav { padding: 0.85rem 1.5rem; }
@@ -359,9 +414,9 @@
             }
             .hamburger { display: block; }
             .hero-inner { padding: 8rem 1.5rem 4rem; }
-            .services, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .serve, .services, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
             .results { padding-left: 1.5rem; padding-right: 1.5rem; }
-            .product { padding: 3.5rem 1.5rem; }
+            .product { padding: 3rem 1.5rem; }
             .res-grid { grid-template-columns: 1fr; }
             .foot-inner { flex-direction: column; text-align: center; }
             .foot-links { justify-content: center; }
@@ -375,25 +430,35 @@
     <div class="nav-links" id="nl">
         <a href="#services">Services</a>
         <a href="#results">Results</a>
-        <a href="#steadiday">SteadiDay</a>
         <a href="#about">About</a>
+        <a href="#steadiday">Products</a>
         <a href="#contact">Contact</a>
     </div>
     <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
     <div class="hero-inner">
-        <span class="tag fi">Healthcare Consulting &amp; Technology &middot; Virginia</span>
-        <h1 class="fi">Helping health systems improve operations and building technology that makes daily life easier.</h1>
-        <p class="lede fi">SCM Solutions LLC is a Virginia-based healthcare consulting and technology firm with 8+ years of experience behind it &mdash; leading enterprise programs across health systems and managed care organizations, and developing digital health products.</p>
+        <span class="tag fi">Healthcare Consulting &middot; Virginia</span>
+        <h1 class="fi">Healthcare consulting built on real operational experience inside health systems.</h1>
+        <p class="lede fi">SCM Solutions LLC partners with health systems, managed care organizations, and healthcare companies to solve complex operational problems. With 8+ years of hands-on experience inside large multi-hospital systems, integrated health plans, and Fortune-ranked managed care enterprises, the work is grounded in what actually happens on the ground &mdash; not theory.</p>
+        <a href="#contact" class="hero-cta fi">Start a conversation</a>
     </div>
 </section>
 
+<!-- WHO WE SERVE -->
+<section class="serve fi">
+    <p class="stag ember">Who This Is For</p>
+    <h2 class="sh">Health systems, managed care plans, and healthcare organizations navigating complex operational challenges.</h2>
+    <p>Whether it's a multi-hospital integration, a stalled quality initiative, a health equity program that needs operational grounding, or a technology implementation that requires someone who understands clinical workflows &mdash; SCM Solutions provides experienced, hands-on consulting support.</p>
+</section>
+
+<!-- SERVICES -->
 <section class="services" id="services">
     <div class="head fi">
-        <p class="stag ember">What We Do</p>
-        <h2 class="sh">Areas of expertise shaped by doing the work, not just advising on it.</h2>
+        <p class="stag ember">Consulting Services</p>
+        <h2 class="sh">What SCM Solutions can help with.</h2>
     </div>
     <div class="svc-grid">
         <div class="svc fi">
@@ -414,26 +479,27 @@
         <div class="svc fi">
             <p class="num">04</p>
             <h3>Clinical Workflow &amp; EHR Integration</h3>
-            <p>Clinician onboarding standardization, third-party vendor integration, provider data management, and system-wide process standardization across multi-hospital environments. Close collaboration with IT and Epic teams to align operational needs with EHR configuration.</p>
+            <p>Clinician onboarding standardization, third-party vendor integration, provider data management, and system-wide process standardization. Close collaboration with IT and Epic teams to align operational needs with EHR configuration.</p>
         </div>
         <div class="svc fi">
             <p class="num">05</p>
             <h3>Quality &amp; Regulatory</h3>
-            <p>Clinical variation reduction, quality initiative management, NCQA accreditation support, OSHA compliance, and risk and safety operational coordination.</p>
+            <p>Clinical variation reduction, quality initiative management, NCQA accreditation support, OSHA compliance, and risk and safety operational coordination across multi-site environments.</p>
         </div>
         <div class="svc fi">
             <p class="num">06</p>
-            <h3>Digital Health Products</h3>
-            <p>Concept-to-launch development of health-focused applications, grounded in accessibility, privacy, and genuine usability &mdash; starting with the populations most often overlooked by mainstream tech.</p>
+            <h3>Managed Care Operations</h3>
+            <p>Medicaid line of business transitions, pharmacy network redesign, behavioral health program management, applied behavioral analysis implementation, and regulatory stakeholder coordination.</p>
         </div>
     </div>
 </section>
 
+<!-- RESULTS -->
 <section class="results" id="results">
     <div class="results-inner">
         <div class="head fi">
             <p class="stag sage">Select Results</p>
-            <h2 class="sh">Outcomes from work across health systems and managed care.</h2>
+            <h2 class="sh">Outcomes from consulting work across health systems and managed care.</h2>
         </div>
         <div class="res-grid">
             <div class="res-card fi">
@@ -449,7 +515,7 @@
             <div class="res-card fi">
                 <div class="metric">30K+</div>
                 <div class="metric-label">Members transitioned with continuity</div>
-                <p>Directed decommissioning of a Behavioral Health Medicaid line of business with uninterrupted coverage.</p>
+                <p>Directed decommissioning of a Behavioral Health Medicaid line of business with uninterrupted member coverage.</p>
             </div>
             <div class="res-card fi">
                 <div class="metric">1M+</div>
@@ -460,27 +526,7 @@
     </div>
 </section>
 
-<section class="product" id="steadiday">
-    <div class="fi">
-        <p class="stag ember">Our Product</p>
-        <h2 class="sh">SteadiDay</h2>
-        <p>SteadiDay is an all-in-one daily companion app built for adults 50 and older. It brings medication management, task organization, health tracking, safety features, and everyday utilities into a single, straightforward interface.</p>
-        <p>No account required. No learning curve. Privacy by default.</p>
-        <p class="feat">
-            Medication reminders, daily tasks, Apple Calendar sync, Emergency SOS, fall detection, Apple Health integration, food and water logging, mind games, magnifier, flashlight, and Find My iPhone access.
-        </p>
-        <a href="https://www.steadiday.com" target="_blank" class="plink">
-            Visit steadiday.com
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-    </div>
-    <div class="phone-wrap fi">
-        <div class="ph">
-            <img src="assets/screenshot-home.png" alt="SteadiDay app home screen" class="ph-img">
-        </div>
-    </div>
-</section>
-
+<!-- ABOUT -->
 <div class="about-band" id="about">
     <section class="about">
         <div class="fi">
@@ -488,20 +534,44 @@
             <h2 class="sh">Background</h2>
         </div>
         <div class="about-body fi">
-            <p>SCM Solutions LLC was founded in Virginia to bring together two things that too often stay separate in healthcare: deep operational experience inside health systems and the ability to build technology that actually works for people.</p>
-            <p>The firm is built on 8+ years of hands-on experience leading enterprise programs across large health systems and managed care organizations &mdash; managing complex portfolios that cut across population health, quality, pharmacy operations, health equity, EHR-related initiatives, and large-scale organizational change.</p>
-            <p>That experience includes work at the intersection of technology and operations &mdash; implementing patient safety reporting systems, integrating third-party vendors into EHR platforms, standing up social determinants of health screening workflows, and supporting mass vaccination operations that served thousands of patients daily.</p>
-            <p>SteadiDay grew out of the same perspective. Older adults were underserved by the health technology market, so SCM Solutions built something for them &mdash; a single app that handles medications, tasks, health tracking, safety, and everyday utilities without requiring an account or a technical background.</p>
+            <p>SCM Solutions LLC is a Virginia-based healthcare consulting firm founded on a simple idea: the best consulting comes from people who have actually led the work, not just advised on it.</p>
+            <p>The firm draws on 8+ years of direct experience leading enterprise programs inside large multi-hospital health systems, integrated health plans, Fortune 25 managed care organizations, national pharmacy benefits companies, and regional Medicaid plans &mdash; managing complex portfolios spanning population health, quality, pharmacy operations, health equity, EHR-related initiatives, and large-scale organizational change.</p>
+            <p>That experience includes leading operational readiness for multi-hospital acquisitions, standing up social determinants of health screening workflows, directing mass vaccination operations serving thousands of patients daily, and managing technology implementations that required deep coordination between clinical, operational, and IT teams.</p>
+            <p>SCM Solutions also develops digital health products. SteadiDay, a daily companion app for adults 50+, was built to address a gap in the market for genuinely accessible health technology.</p>
         </div>
     </section>
 </div>
 
+<!-- STEADIDAY -->
+<div class="product-band" id="steadiday">
+    <section class="product">
+        <div class="fi">
+            <p class="stag ember">Our Product</p>
+            <h2 class="sh">SteadiDay</h2>
+            <p>In addition to consulting, SCM Solutions develops digital health products. SteadiDay is an all-in-one daily companion app built for adults 50 and older &mdash; bringing medication management, task organization, health tracking, safety features, and everyday utilities into one straightforward interface.</p>
+            <p class="feat">
+                Medication reminders, daily tasks, Apple Calendar sync, Emergency SOS, fall detection, Apple Health integration, food and water logging, mind games, magnifier, flashlight, and Find My iPhone access.
+            </p>
+            <a href="https://www.steadiday.com" target="_blank" class="plink">
+                Visit steadiday.com
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+        </div>
+        <div class="phone-wrap fi">
+            <div class="ph">
+                <img src="assets/screenshot-home.png" alt="SteadiDay app home screen" class="ph-img">
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- CONTACT -->
 <div class="contact-band" id="contact">
     <section class="contact">
         <div class="fi">
             <p class="stag ember">Get In Touch</p>
-            <h2 class="sh">Let's talk.</h2>
-            <p>Have questions about SteadiDay, interested in learning more, or want to discuss a potential collaboration? Get in touch.</p>
+            <h2 class="sh">Let's talk about your project.</h2>
+            <p>Looking for experienced consulting support for an operational challenge, a program that needs leadership, or a complex initiative that requires someone who has been in the room before? Reach out.</p>
             <p class="email-line"><a href="mailto&#58;contact&#64;scmsolutions&#46;org">contact&#64;scmsolutions&#46;org</a></p>
         </div>
     </section>
@@ -513,8 +583,8 @@
         <div class="foot-links">
             <a href="#services">Services</a>
             <a href="#results">Results</a>
-            <a href="#steadiday">SteadiDay</a>
             <a href="#about">About</a>
+            <a href="#steadiday">Products</a>
             <a href="#contact">Contact</a>
         </div>
         <p class="copy">&copy; 2025 SCM Solutions LLC &middot; Virginia</p>
