@@ -9,15 +9,16 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="SCM Solutions LLC">
     <link rel="canonical" href="https://scmsolutions.org/">
-    <meta property="og:title" content="SCM Solutions LLC &mdash; Healthcare Consulting">
-    <meta property="og:description" content="Healthcare consulting firm helping health systems and managed care organizations improve operations and drive measurable outcomes.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230C1222'/%3E%3Ctext x='8' y='23' font-family='Georgia, serif' font-size='19' fill='white'%3ES%3C/text%3E%3Ccircle cx='23' cy='22' r='2.2' fill='%23E8622B'/%3E%3C/svg%3E">
+    <meta property="og:title" content="SCM Solutions LLC &mdash; Independent Healthcare Consulting">
+    <meta property="og:description" content="Independent healthcare consulting for health systems and managed care organizations. Interim leadership, project-based engagements, and advisory retainers backed by 8+ years of operational experience.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scmsolutions.org">
     <meta property="og:site_name" content="SCM Solutions LLC">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="SCM Solutions LLC &mdash; Healthcare Consulting">
-    <meta name="twitter:description" content="Healthcare consulting firm. Operational improvement, program management, and quality initiatives for health systems and managed care.">
+    <meta name="twitter:title" content="SCM Solutions LLC &mdash; Independent Healthcare Consulting">
+    <meta name="twitter:description" content="Independent healthcare consulting. Interim leadership, project-based engagements, and advisory retainers for health systems and managed care organizations.">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"ProfessionalService","name":"SCM Solutions LLC","url":"https://scmsolutions.org","description":"Healthcare consulting firm helping health systems, managed care organizations, and healthcare companies improve operations and drive measurable outcomes.","address":{"@type":"PostalAddress","addressRegion":"VA","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"serviceType":["Healthcare Consulting","Operational Improvement","Program Management","Health Equity Strategy","Clinical Workflow Optimization","Quality Improvement","Population Health Management","Managed Care Operations","EHR Integration Consulting"],"knowsAbout":["Health Systems","Managed Care Organizations","Medicaid","Population Health","Social Determinants of Health","NCQA Accreditation","Epic EHR","AI in Healthcare"]}
     </script>
@@ -66,8 +67,13 @@
         @keyframes float2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-25px,15px); } }
         .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 50px 50px; }
         .hero-inner { position: relative; z-index: 2; max-width: 920px; margin: 0 auto; padding: 12rem 3rem 7.5rem; }
-        .hero .tag { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ember); margin-bottom: 2rem; }
+        .hero .badges { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 2rem; }
+        .hero .tag { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ember); }
         .hero .tag::before { content: ''; width: 28px; height: 2px; background: var(--ember); border-radius: 2px; }
+        .status-pill { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.4rem 0.95rem; border-radius: 50px; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); font-size: 0.78rem; font-weight: 600; color: var(--sage); letter-spacing: 0.3px; }
+        .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 10px var(--sage); position: relative; }
+        .status-dot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: var(--sage); opacity: 0.35; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%,100% { transform: scale(0.8); opacity: 0.35; } 50% { transform: scale(1.4); opacity: 0; } }
         .hero h1 { font-family: 'Instrument Serif', serif; font-size: clamp(2.8rem, 5.5vw, 4.2rem); font-weight: 400; line-height: 1.12; color: var(--white); margin-bottom: 2rem; max-width: 800px; }
         .hero h1 em { font-style: italic; color: var(--ember-light); }
         .hero .lede { font-size: 1.2rem; line-height: 1.85; font-weight: 400; color: var(--slate-400); max-width: 640px; margin-bottom: 2.75rem; }
@@ -87,8 +93,8 @@
         .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
         .trust-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); white-space: nowrap; }
         .trust-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .trust-pill { padding: 0.55rem 1.15rem; border: 1px solid var(--slate-200); border-radius: 50px; font-size: 0.9rem; color: var(--text-mid); font-weight: 500; background: var(--white); transition: border-color 0.2s, background 0.2s; }
-        .trust-pill:hover { border-color: var(--ember); background: var(--ember-glow); color: var(--ember); }
+        .trust-pill { padding: 0.55rem 1.15rem; border: 1px solid var(--slate-200); border-radius: 50px; font-size: 0.9rem; color: var(--text-mid); font-weight: 500; background: var(--white); transition: border-color 0.2s, color 0.2s; }
+        .trust-pill:hover { border-color: var(--slate-400); color: var(--text); }
 
         /* SERVICES */
         .services { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
@@ -104,6 +110,18 @@
         .svc h3 { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 0.7rem; line-height: 1.3; color: var(--text); }
         .svc p { font-size: 0.95rem; line-height: 1.75; color: var(--text-mid); }
 
+        /* ENGAGE */
+        .engage { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+        .engage .head { max-width: 620px; margin-bottom: 3rem; }
+        .engage .head p.sub { font-size: 1.08rem; line-height: 1.75; color: var(--text-mid); margin-top: 1rem; }
+        .eng-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .eng-card { padding: 2rem; border: 1px solid var(--slate-200); border-radius: 12px; background: var(--white); position: relative; transition: all 0.3s; }
+        .eng-card:hover { border-color: var(--slate-300); box-shadow: 0 12px 40px rgba(12,18,34,0.05); transform: translateY(-2px); }
+        .eng-card .eng-num { font-family: 'Instrument Serif', serif; font-size: 0.95rem; color: var(--ember); margin-bottom: 0.9rem; letter-spacing: 0.5px; }
+        .eng-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.7rem; line-height: 1.25; color: var(--text); }
+        .eng-card p { font-size: 0.95rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 1.25rem; }
+        .eng-card .eng-meta { font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); padding-top: 1rem; border-top: 1px solid var(--slate-200); }
+
         /* RESULTS */
         .results { background: var(--midnight); padding: 6rem 3rem; position: relative; overflow: hidden; }
         .results::before { content: ''; position: absolute; top: 0; right: 0; width: 350px; height: 350px; background: radial-gradient(circle, rgba(232,98,43,0.06) 0%, transparent 70%); border-radius: 50%; }
@@ -116,8 +134,8 @@
         .res-card::after { content: ''; position: absolute; bottom: 0; left: 1.5rem; right: 1.5rem; height: 2px; background: linear-gradient(90deg, var(--sage), transparent); opacity: 0; transition: opacity 0.3s; }
         .res-card:hover { transform: translateY(-3px); border-color: rgba(52,211,153,0.2); }
         .res-card:hover::after { opacity: 1; }
-        .res-card .metric { font-family: 'Instrument Serif', serif; font-size: 2.4rem; font-weight: 400; color: var(--sage); margin-bottom: 0.35rem; line-height: 1; }
-        .res-card .metric-label { font-size: 0.88rem; font-weight: 600; color: var(--slate-300); margin-bottom: 0.65rem; line-height: 1.4; }
+        .res-card .metric { font-family: 'Instrument Serif', serif; font-size: 2.5rem; font-weight: 400; color: var(--sage); line-height: 1; margin-bottom: 0.2rem; }
+        .res-card .metric-label { font-size: 0.85rem; font-weight: 600; color: var(--slate-300); line-height: 1.35; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .res-card p { font-size: 0.9rem; line-height: 1.65; color: var(--slate-400); }
 
         /* PROCESS */
@@ -130,6 +148,18 @@
         .step:hover .step-num { opacity: 1; }
         .step h3 { font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-weight: 400; color: var(--text); margin-bottom: 0.6rem; }
         .step p { font-size: 1.05rem; line-height: 1.8; color: var(--text-mid); }
+
+        /* PRODUCT MENTION (compact) */
+        .product-inline { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; margin-top: 2rem; background: var(--white); border: 1px solid var(--slate-200); border-radius: 12px; text-decoration: none; transition: all 0.25s; }
+        .product-inline:hover { border-color: var(--slate-300); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(12,18,34,0.06); }
+        .product-inline-mark { flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--midnight), var(--navy)); display: flex; align-items: center; justify-content: center; color: var(--white); font-family: 'Instrument Serif', serif; font-size: 1.4rem; font-weight: 400; position: relative; }
+        .product-inline-mark::after { content: ''; position: absolute; bottom: 7px; right: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--ember); }
+        .product-inline-body { flex: 1; min-width: 0; }
+        .product-inline-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ember); margin-bottom: 0.2rem; }
+        .product-inline-title { font-family: 'Instrument Serif', serif; font-size: 1.15rem; color: var(--text); line-height: 1.25; margin-bottom: 0.15rem; }
+        .product-inline-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.5; }
+        .product-inline-arrow { flex-shrink: 0; color: var(--ember); font-size: 1.1rem; transition: transform 0.2s; }
+        .product-inline:hover .product-inline-arrow { transform: translateX(4px); }
 
         /* ABOUT */
         .about-band { background: var(--slate-50); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); position: relative; }
@@ -151,6 +181,7 @@
         .contact .email-line a { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.2rem; border: 2px solid var(--ember); border-radius: 8px; color: var(--ember); font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.25s; }
         .contact .email-line a:hover { background: var(--ember); color: var(--white); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232,98,43,0.2); }
         .contact .email-line a svg { width: 20px; height: 20px; }
+        .contact .contact-note { margin-top: 2rem; font-size: 0.85rem; color: var(--slate-400); letter-spacing: 0.2px; }
 
         /* FOOTER */
         footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 3rem; background: var(--midnight); }
@@ -171,6 +202,7 @@
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .svc-grid { grid-template-columns: 1fr; }
+            .eng-grid { grid-template-columns: 1fr; }
             .res-grid { grid-template-columns: repeat(2, 1fr); }
             .trust-inner { flex-direction: column; align-items: flex-start; }
         }
@@ -181,8 +213,10 @@
             .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); padding: 1.25rem 1.5rem; gap: 1rem; border-bottom: 1px solid var(--slate-200); }
             .hamburger { display: block; }
             .hero-inner { padding: 9rem 1.5rem 5rem; }
-            .trust, .services, .process, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .trust, .services, .engage, .process, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
             .results { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .product-inline { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .product-inline-arrow { display: none; }
             .res-grid { grid-template-columns: 1fr; }
             .foot-inner { flex-direction: column; text-align: center; }
             .foot-links { justify-content: center; flex-wrap: wrap; }
@@ -196,6 +230,7 @@
     <a href="#" class="logo">SCM<b>.</b> Solutions</a>
     <div class="nav-links" id="nl">
         <a href="#services">Services</a>
+        <a href="#engage">Engage</a>
         <a href="#results">Results</a>
         <a href="#process">Approach</a>
         <a href="#about">About</a>
@@ -213,11 +248,14 @@
     </div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
-        <div class="tag fi">Healthcare Consulting</div>
+        <div class="badges fi">
+            <span class="tag">Independent Healthcare Consulting</span>
+            <span class="status-pill"><span class="status-dot"></span>Currently accepting engagements</span>
+        </div>
         <h1 class="fi fi-d1">Operational problems in healthcare require someone who has <em>solved them before.</em></h1>
-        <p class="lede fi fi-d2">SCM Solutions is a healthcare consulting firm built on 8+ years of hands-on experience inside large multi-hospital systems, integrated health plans, and Fortune 25 managed care enterprises. Not theory. Not frameworks. Actual operational leadership.</p>
+        <p class="lede fi fi-d2">I'm an independent healthcare consultant with 8+ years of hands-on operational experience inside large multi-hospital systems, integrated health plans, and Fortune 25 managed care enterprises. Not theory. Not frameworks. Actual operational leadership, available through SCM Solutions LLC.</p>
         <a href="#contact" class="hero-cta fi fi-d3">
-            Start a conversation
+            Discuss an engagement
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
         </a>
     </div>
@@ -279,33 +317,62 @@
     </div>
 </section>
 
+<!-- ENGAGE -->
+<section class="engage" id="engage">
+    <div class="head fi">
+        <p class="stag ember">Ways to Engage</p>
+        <h2 class="sh">Structured for the way you actually need to buy help.</h2>
+        <p class="sub">Every organization's needs are different. These are the engagement models I most commonly work within &mdash; each with clear scope, deliverables, and a working agreement.</p>
+    </div>
+    <div class="eng-grid">
+        <div class="eng-card fi">
+            <div class="eng-num">01</div>
+            <h3>Interim &amp; Fractional Leadership</h3>
+            <p>Stepping into an operational leadership role during a gap, integration, or period of organizational change &mdash; embedded within your team, full- or part-time.</p>
+            <div class="eng-meta">Weekly or Monthly</div>
+        </div>
+        <div class="eng-card fi fi-d1">
+            <div class="eng-num">02</div>
+            <h3>Project-Based Engagement</h3>
+            <p>Defined scope, timeline, and deliverables. Ideal for stalled initiatives, large program launches, integrations, and targeted operational improvement work.</p>
+            <div class="eng-meta">Fixed Fee or Milestone</div>
+        </div>
+        <div class="eng-card fi fi-d2">
+            <div class="eng-num">03</div>
+            <h3>Advisory Retainer</h3>
+            <p>Ongoing strategic advisory for executives and program leaders managing complex initiatives, vendor relationships, or transformation work that benefits from a seasoned second opinion.</p>
+            <div class="eng-meta">Monthly Retainer</div>
+        </div>
+    </div>
+</section>
+
 <!-- RESULTS -->
 <section class="results" id="results">
     <div class="results-inner">
         <div class="head fi">
             <p class="stag">Select Results</p>
-            <h2 class="sh">Real outcomes from real engagements.</h2>
+            <h2 class="sh">Outcomes from past engagements.</h2>
         </div>
         <div class="res-grid">
             <div class="res-card fi">
                 <div class="metric">$10M+</div>
                 <div class="metric-label">Documented cost savings</div>
-                <p>28 clinical variation and quality initiatives managed across a multi-hospital system over three fiscal years.</p>
+                <p>Led 28 clinical variation and quality initiatives across a multi-hospital system over three fiscal years.</p>
             </div>
             <div class="res-card fi fi-d1">
                 <div class="metric">$20M+</div>
                 <div class="metric-label">Annual transfer contribution</div>
-                <p>21-hospital transfer liaison program with 18 staff, delivering sustained process improvement and financial impact.</p>
+                <p>Managed a 21-hospital transfer liaison program with 18 staff, delivering sustained process and financial impact.</p>
             </div>
             <div class="res-card fi fi-d2">
                 <div class="metric">30K+</div>
                 <div class="metric-label">Members transitioned</div>
-                <p>Behavioral Health Medicaid line of business decommissioned with uninterrupted care continuity.</p>
+                <p>Decommissioned a Behavioral Health Medicaid line of business with uninterrupted care continuity.</p>
             </div>
             <div class="res-card fi fi-d3">
                 <div class="metric">1M+</div>
                 <div class="metric-label">Patients impacted</div>
-                <p>National pharmacy network replaced with three regionalized networks managing access for over one million patients.</p>
+                <p>Replaced a national pharmacy network with three regionalized networks managing access for over one million patients.</p>
             </div>
         </div>
     </div>
@@ -315,28 +382,28 @@
 <section class="process" id="process">
     <div class="head fi">
         <p class="stag ember">Approach</p>
-        <h2 class="sh">How engagements work.</h2>
+        <h2 class="sh">How I work.</h2>
     </div>
     <div class="steps">
         <div class="step fi">
             <div class="step-num">01</div>
             <div>
                 <h3>Discovery</h3>
-                <p>An initial conversation to understand the challenge, the stakeholders, and what success looks like. No sales pitch &mdash; just an honest assessment of fit.</p>
+                <p>We start with a conversation to understand the challenge, the stakeholders, and what success looks like. No sales pitch &mdash; just an honest assessment of whether I'm the right fit.</p>
             </div>
         </div>
         <div class="step fi">
             <div class="step-num">02</div>
             <div>
                 <h3>Scope &amp; Structure</h3>
-                <p>A clearly defined engagement scope, timeline, deliverables, and working agreement. No ambiguity about what gets delivered, when, and how progress is measured.</p>
+                <p>I provide a clearly defined scope, timeline, deliverables, and working agreement. No ambiguity about what gets delivered, when, and how progress is measured.</p>
             </div>
         </div>
         <div class="step fi">
             <div class="step-num">03</div>
             <div>
                 <h3>Embedded Execution</h3>
-                <p>Hands-on operational leadership within your teams and workflows. Not a slide deck from the outside &mdash; actual execution alongside the people doing the work.</p>
+                <p>Hands-on operational leadership inside your teams and workflows. Not a slide deck from the outside &mdash; actual execution alongside the people doing the work.</p>
             </div>
         </div>
         <div class="step fi">
@@ -354,13 +421,20 @@
     <section class="about">
         <div class="fi">
             <p class="stag ember">About</p>
-            <h2 class="sh">The firm behind the work.</h2>
+            <h2 class="sh">About the work, and who you'd be working with.</h2>
         </div>
         <div class="about-body fi">
-            <p>SCM Solutions LLC is a healthcare consulting firm founded on the belief that the best consulting comes from people who have led the work directly &mdash; inside the organizations, alongside the teams, accountable for the outcomes.</p>
-            <p>The firm draws on 8+ years of experience across large multi-hospital health systems, integrated health plans, Fortune 25 managed care organizations, national pharmacy benefits companies, and regional Medicaid plans. That experience spans population health, quality, pharmacy operations, health equity, clinical workflow optimization, and large-scale organizational change.</p>
-            <p>SCM Solutions also brings practical experience applying AI tools to build real products &mdash; not as a buzzword, but as a hands-on capability used to design, develop, and ship a consumer health application from concept to the App Store.</p>
-            <p>The firm also develops its own digital health products. <a href="https://www.steadiday.com" target="_blank">SteadiDay</a>, a daily companion app for adults 50+, was built to address a gap in the market for genuinely accessible health technology.</p>
+            <p>I founded SCM Solutions LLC on a straightforward belief: the best consulting comes from people who have led the work directly &mdash; inside the organizations, alongside the teams, accountable for the outcomes. My 8+ years of operational experience span large multi-hospital systems, integrated health plans, Fortune 25 managed care organizations, national pharmacy benefits companies, and regional Medicaid plans &mdash; covering population health, quality, pharmacy operations, health equity, clinical workflow optimization, and large-scale organizational change.</p>
+            <p>I also bring practical experience applying AI tools to build real products &mdash; not as a buzzword, but as a hands-on capability used to design, develop, and ship a consumer health application from concept to the App Store. When you engage SCM Solutions, you work directly with me. No bait-and-switch, no junior staff behind the scenes.</p>
+            <a href="https://www.steadiday.com" target="_blank" rel="noopener" class="product-inline">
+                <div class="product-inline-mark">S</div>
+                <div class="product-inline-body">
+                    <div class="product-inline-label">Shipped Product</div>
+                    <div class="product-inline-title">SteadiDay &mdash; daily companion app for adults 50+</div>
+                    <div class="product-inline-desc">Designed, built, and launched end-to-end. Live on the App Store &middot; steadiday.com</div>
+                </div>
+                <div class="product-inline-arrow">&rarr;</div>
+            </a>
         </div>
     </section>
 </div>
@@ -370,14 +444,15 @@
     <section class="contact">
         <div class="fi">
             <p class="stag">Get In Touch</p>
-            <h2 class="sh">Ready to talk about your project?</h2>
-            <p>Whether it's an operational challenge, a stalled initiative, a complex integration, or a program that needs experienced leadership &mdash; reach out for an initial conversation. No commitment, no sales pitch.</p>
+            <h2 class="sh">Let's talk about your engagement.</h2>
+            <p>Whether it's an operational challenge, a stalled initiative, a complex integration, or a program that needs experienced leadership &mdash; send a short note about what you're working on and I'll respond within one business day.</p>
             <div class="email-line">
-                <a href="mailto&#58;contact&#64;scmsolutions&#46;org">
+                <a href="mailto&#58;contact&#64;scmsolutions&#46;org?subject=Engagement%20Inquiry">
                     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 6l8 5 8-5"/></svg>
                     contact&#64;scmsolutions&#46;org
                 </a>
             </div>
+            <p class="contact-note">Typical response time: within one business day &middot; Based in Virginia, working across the U.S.</p>
         </div>
     </section>
 </div>
@@ -387,6 +462,7 @@
         <div class="foot-name">SCM Solutions LLC</div>
         <div class="foot-links">
             <a href="#services">Services</a>
+            <a href="#engage">Engage</a>
             <a href="#results">Results</a>
             <a href="#process">Approach</a>
             <a href="#about">About</a>
