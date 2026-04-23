@@ -149,27 +149,17 @@
         .step h3 { font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-weight: 400; color: var(--text); margin-bottom: 0.6rem; }
         .step p { font-size: 1.05rem; line-height: 1.8; color: var(--text-mid); }
 
-        /* PRODUCT */
-        .product { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
-        .product-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .product-copy .sh { margin-bottom: 1.5rem; }
-        .product-copy p { font-size: 1.08rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 1.25rem; }
-        .product-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
-        .product-link { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1.6rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.25s; }
-        .product-link.primary { background: var(--ember); color: var(--white); }
-        .product-link.primary:hover { background: var(--ember-hover); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232,98,43,0.22); }
-        .product-link.secondary { border: 1px solid var(--slate-200); color: var(--text); background: var(--white); }
-        .product-link.secondary:hover { border-color: var(--ember); color: var(--ember); }
-        .product-link svg { width: 16px; height: 16px; transition: transform 0.2s; }
-        .product-link:hover svg { transform: translateX(3px); }
-        .product-card { background: linear-gradient(160deg, var(--navy) 0%, var(--midnight) 100%); border-radius: 16px; padding: 2.5rem; border: 1px solid var(--navy-light); position: relative; overflow: hidden; }
-        .product-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(232,98,43,0.18) 0%, transparent 70%); border-radius: 50%; }
-        .product-card-tag { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ember); margin-bottom: 1.25rem; }
-        .product-card-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 10px var(--sage); }
-        .product-card h3 { position: relative; font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; color: var(--white); line-height: 1.15; margin-bottom: 0.75rem; }
-        .product-card p { position: relative; font-size: 0.98rem; line-height: 1.7; color: var(--slate-300); margin-bottom: 1.5rem; }
-        .product-card .meta { position: relative; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .product-card .meta span { font-size: 0.78rem; padding: 0.35rem 0.8rem; border: 1px solid var(--navy-light); border-radius: 50px; color: var(--slate-300); background: rgba(255,255,255,0.03); }
+        /* PRODUCT MENTION (compact) */
+        .product-inline { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; margin-top: 2rem; background: var(--white); border: 1px solid var(--slate-200); border-radius: 12px; text-decoration: none; transition: all 0.25s; }
+        .product-inline:hover { border-color: var(--slate-300); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(12,18,34,0.06); }
+        .product-inline-mark { flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--midnight), var(--navy)); display: flex; align-items: center; justify-content: center; color: var(--white); font-family: 'Instrument Serif', serif; font-size: 1.4rem; font-weight: 400; position: relative; }
+        .product-inline-mark::after { content: ''; position: absolute; bottom: 7px; right: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--ember); }
+        .product-inline-body { flex: 1; min-width: 0; }
+        .product-inline-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ember); margin-bottom: 0.2rem; }
+        .product-inline-title { font-family: 'Instrument Serif', serif; font-size: 1.15rem; color: var(--text); line-height: 1.25; margin-bottom: 0.15rem; }
+        .product-inline-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.5; }
+        .product-inline-arrow { flex-shrink: 0; color: var(--ember); font-size: 1.1rem; transition: transform 0.2s; }
+        .product-inline:hover .product-inline-arrow { transform: translateX(4px); }
 
         /* ABOUT */
         .about-band { background: var(--slate-50); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); position: relative; }
@@ -215,7 +205,6 @@
             .eng-grid { grid-template-columns: 1fr; }
             .res-grid { grid-template-columns: repeat(2, 1fr); }
             .trust-inner { flex-direction: column; align-items: flex-start; }
-            .product-inner { grid-template-columns: 1fr; gap: 2.5rem; }
         }
         @media (max-width: 600px) {
             body { font-size: 16px; }
@@ -225,9 +214,9 @@
             .hamburger { display: block; }
             .hero-inner { padding: 9rem 1.5rem 5rem; }
             .trust, .services, .engage, .process, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
-            .results, .product { padding-left: 1.5rem; padding-right: 1.5rem; }
-            .product-card { padding: 2rem 1.5rem; }
-            .product-card h3 { font-size: 1.7rem; }
+            .results { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .product-inline { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .product-inline-arrow { display: none; }
             .res-grid { grid-template-columns: 1fr; }
             .foot-inner { flex-direction: column; text-align: center; }
             .foot-links { justify-content: center; flex-wrap: wrap; }
@@ -437,37 +426,18 @@
         <div class="about-body fi">
             <p>I founded SCM Solutions LLC on a straightforward belief: the best consulting comes from people who have led the work directly &mdash; inside the organizations, alongside the teams, accountable for the outcomes. My 8+ years of operational experience span large multi-hospital systems, integrated health plans, Fortune 25 managed care organizations, national pharmacy benefits companies, and regional Medicaid plans &mdash; covering population health, quality, pharmacy operations, health equity, clinical workflow optimization, and large-scale organizational change.</p>
             <p>I also bring practical experience applying AI tools to build real products &mdash; not as a buzzword, but as a hands-on capability used to design, develop, and ship a consumer health application from concept to the App Store. When you engage SCM Solutions, you work directly with me. No bait-and-switch, no junior staff behind the scenes.</p>
+            <a href="https://www.steadiday.com" target="_blank" rel="noopener" class="product-inline">
+                <div class="product-inline-mark">S</div>
+                <div class="product-inline-body">
+                    <div class="product-inline-label">Shipped Product</div>
+                    <div class="product-inline-title">SteadiDay &mdash; daily companion app for adults 50+</div>
+                    <div class="product-inline-desc">Designed, built, and launched end-to-end. Live on the App Store &middot; steadiday.com</div>
+                </div>
+                <div class="product-inline-arrow">&rarr;</div>
+            </a>
         </div>
     </section>
 </div>
-
-<!-- PRODUCT -->
-<section class="product" id="product">
-    <div class="product-inner">
-        <div class="product-copy fi">
-            <p class="stag ember">Digital Products</p>
-            <h2 class="sh">SteadiDay &mdash; our consumer health app for adults 50+.</h2>
-            <p>SCM Solutions develops its own digital health products alongside client engagements. SteadiDay is a daily companion app built from the ground up for adults 50+, designed to close the gap in genuinely accessible health technology for older users.</p>
-            <p>The product was taken end-to-end by SCM Solutions &mdash; concept, design, iOS engineering, marketing site, and App Store launch.</p>
-            <div class="product-links">
-                <a href="https://www.steadiday.com" target="_blank" rel="noopener" class="product-link primary">
-                    Visit steadiday.com
-                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
-                </a>
-            </div>
-        </div>
-        <div class="product-card fi fi-d1">
-            <div class="product-card-tag">Live on the App Store</div>
-            <h3>SteadiDay</h3>
-            <p>A daily companion for adults 50+ &mdash; accessible by design, built for real use, and focused on consistency over complexity.</p>
-            <div class="meta">
-                <span>iOS</span>
-                <span>Consumer Health</span>
-                <span>50+ Audience</span>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- CONTACT -->
 <div class="contact-band" id="contact">
@@ -495,7 +465,6 @@
             <a href="#engage">Engage</a>
             <a href="#results">Results</a>
             <a href="#process">Approach</a>
-            <a href="#product">Product</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
