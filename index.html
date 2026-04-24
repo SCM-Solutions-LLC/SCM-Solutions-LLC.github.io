@@ -48,7 +48,7 @@
         nav.scrolled { border-bottom-color: var(--slate-200); box-shadow: 0 2px 20px rgba(12,18,34,0.06); }
         .logo { font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-weight: 400; color: var(--text); text-decoration: none; }
         .logo b { color: var(--ember); font-weight: 400; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links { display: flex; gap: 1.75rem; align-items: center; }
         .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--ember); }
         .nav-cta { background: var(--ember) !important; color: var(--white) !important; padding: 0.6rem 1.4rem !important; border-radius: 8px !important; font-weight: 600 !important; transition: background 0.2s, transform 0.15s !important; }
@@ -122,6 +122,21 @@
         .res-card .metric-label { font-size: 0.85rem; font-weight: 600; color: var(--slate-300); line-height: 1.35; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .res-card p { font-size: 0.9rem; line-height: 1.65; color: var(--slate-400); }
 
+        /* CASE STUDIES */
+        .cases { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+        .cases .head { max-width: 640px; margin-bottom: 3.5rem; }
+        .cases .head p.sub { font-size: 1.08rem; line-height: 1.75; color: var(--text-mid); margin-top: 1rem; }
+        .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .case-card { padding: 2.25rem 2rem; border: 1px solid var(--slate-200); border-radius: 12px; background: var(--white); transition: all 0.3s; position: relative; display: flex; flex-direction: column; }
+        .case-card:hover { border-color: var(--slate-300); box-shadow: 0 12px 40px rgba(12,18,34,0.06); transform: translateY(-3px); }
+        .case-card .case-focus { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ember); margin-bottom: 0.85rem; }
+        .case-card h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.3rem; line-height: 1.3; color: var(--text); }
+        .case-card .case-attr { font-size: 0.82rem; color: var(--text-light); font-style: italic; margin-bottom: 1.5rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--slate-200); }
+        .case-section { margin-bottom: 1.1rem; }
+        .case-section:last-child { margin-bottom: 0; }
+        .case-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.4rem; }
+        .case-section p { font-size: 0.92rem; line-height: 1.7; color: var(--text-mid); }
+
         /* PROCESS */
         .process { padding: 6rem 3rem; max-width: 900px; margin: 0 auto; }
         .process .head { margin-bottom: 3.5rem; }
@@ -133,8 +148,18 @@
         .step h3 { font-family: 'Instrument Serif', serif; font-size: 1.35rem; font-weight: 400; color: var(--text); margin-bottom: 0.6rem; }
         .step p { font-size: 1.05rem; line-height: 1.8; color: var(--text-mid); }
 
+        /* FAQ */
+        .faq-band { background: var(--slate-50); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); }
+        .faq { padding: 6rem 3rem; max-width: 900px; margin: 0 auto; }
+        .faq .head { margin-bottom: 3.5rem; }
+        .faq-list { display: grid; gap: 0; }
+        .faq-item { padding: 2rem 0; border-top: 1px solid var(--slate-200); }
+        .faq-item:last-child { border-bottom: 1px solid var(--slate-200); }
+        .faq-item h3 { font-family: 'Instrument Serif', serif; font-size: 1.25rem; font-weight: 400; color: var(--text); margin-bottom: 0.85rem; line-height: 1.35; }
+        .faq-item p { font-size: 1rem; line-height: 1.8; color: var(--text-mid); }
+
         /* ABOUT */
-        .about-band { background: var(--slate-50); border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); position: relative; }
+        .about-band { background: var(--white); border-bottom: 1px solid var(--slate-200); position: relative; }
         .about-band::before { content: ''; position: absolute; top: 2rem; right: 3rem; width: 120px; height: 120px; border: 2px solid var(--slate-200); border-radius: 50%; opacity: 0.5; }
         .about-band::after { content: ''; position: absolute; bottom: 3rem; left: 5rem; width: 80px; height: 80px; border: 2px solid var(--slate-200); border-radius: 50%; opacity: 0.3; }
         .about { max-width: 820px; margin: 0 auto; padding: 6rem 3rem; position: relative; z-index: 2; }
@@ -147,7 +172,7 @@
         .contact { max-width: 820px; margin: 0 auto; padding: 6rem 3rem; position: relative; z-index: 2; }
         .contact .stag { color: var(--ember); }
         .contact .sh { color: var(--white); margin-bottom: 1.25rem; }
-        .contact p { font-size: 1.15rem; line-height: 1.85; color: var(--slate-400); max-width: 600px; }
+        .contact p { font-size: 1.15rem; line-height: 1.85; color: var(--slate-400); max-width: 620px; }
         .contact .email-line { margin-top: 2.5rem; }
         .contact .email-line a { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.2rem; border: 2px solid var(--ember); border-radius: 8px; color: var(--ember); font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.25s; }
         .contact .email-line a:hover { background: var(--ember); color: var(--white); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232,98,43,0.2); }
@@ -158,7 +183,7 @@
         footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 3rem; background: var(--midnight); }
         .foot-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
         .foot-name { font-family: 'Instrument Serif', serif; font-size: 1rem; color: var(--slate-300); }
-        .foot-links { display: flex; gap: 1.75rem; }
+        .foot-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
         .foot-links a { font-size: 0.85rem; color: var(--slate-400); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ember); }
         .copy { width: 100%; text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: var(--slate-400); opacity: 0.5; }
@@ -173,6 +198,7 @@
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .svc-grid { grid-template-columns: 1fr; }
+            .case-grid { grid-template-columns: 1fr; }
             .res-grid { grid-template-columns: repeat(2, 1fr); }
             .trust-inner { flex-direction: column; align-items: flex-start; }
         }
@@ -183,7 +209,7 @@
             .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); padding: 1.25rem 1.5rem; gap: 1rem; border-bottom: 1px solid var(--slate-200); }
             .hamburger { display: block; }
             .hero-inner { padding: 9rem 1.5rem 5rem; }
-            .trust, .services, .process, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .trust, .services, .cases, .process, .faq, .about, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
             .results { padding-left: 1.5rem; padding-right: 1.5rem; }
             .res-grid { grid-template-columns: 1fr; }
             .foot-inner { flex-direction: column; text-align: center; }
@@ -199,9 +225,11 @@
     <div class="nav-links" id="nl">
         <a href="#services">Focus Areas</a>
         <a href="#results">Results</a>
+        <a href="#cases">Case Studies</a>
         <a href="#process">Approach</a>
+        <a href="#faq">FAQ</a>
         <a href="#about">About</a>
-        <a href="#contact" class="nav-cta">Notify Me</a>
+        <a href="#contact" class="nav-cta">Connect</a>
     </div>
     <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -220,8 +248,8 @@
         </div>
         <h1 class="fi fi-d1">Program management for the healthcare initiatives <em>that can't slip.</em></h1>
         <p class="lede fi fi-d2">SCM Solutions LLC is an independent program management practice for complex healthcare initiatives &mdash; quality and regulatory programs, health equity operationalization, and managed care transitions. Every engagement draws on operational experience inside multi-hospital systems, integrated health plans, and Fortune 25 managed care organizations.</p>
-        <a href="mailto&#58;contact&#64;scmsolutions&#46;org?subject=Add%20me%20to%20engagement%20notifications" class="hero-cta fi fi-d3">
-            Join engagement notifications
+        <a href="#contact" class="hero-cta fi fi-d3">
+            Connect with SCM Solutions
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
         </a>
     </div>
@@ -283,8 +311,8 @@
             </div>
             <div class="res-card fi fi-d1">
                 <div class="metric">$20M+</div>
-                <div class="metric-label">Annual transfer contribution</div>
-                <p>Program management for a 21-hospital transfer liaison program (18 staff) sustaining $20M+ in annual contribution.</p>
+                <div class="metric-label">Annual savings</div>
+                <p>Program management for a 21-hospital transfer liaison program (18 staff) sustaining $20M+ in annual savings through process improvement.</p>
             </div>
             <div class="res-card fi fi-d2">
                 <div class="metric">30K+</div>
@@ -297,6 +325,72 @@
                 <p>Program management for the replacement of a national pharmacy network with three regionalized networks serving 1M+ patients.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases" id="cases">
+    <div class="head fi">
+        <p class="stag ember">Case Studies</p>
+        <h2 class="sh">How the work gets done.</h2>
+        <p class="sub">Representative engagements &mdash; anonymized at the organization level &mdash; drawn from the three focus areas above.</p>
+    </div>
+    <div class="case-grid">
+
+        <div class="case-card fi">
+            <span class="case-focus">Health Equity &amp; SDoH</span>
+            <h3>Operationalizing SDoH at system scale</h3>
+            <p class="case-attr">Multi-hospital health system, Southeast U.S.</p>
+            <div class="case-section">
+                <div class="case-label">Challenge</div>
+                <p>A published health equity strategy without an operational mechanism for identifying social drivers of health at the point of care. No SDoH platform integrated into the EHR. Clinical, operational, marketing, and training functions misaligned on scope and sequencing &mdash; the common failure mode for health equity strategy stalling at the gap between policy and operations.</p>
+            </div>
+            <div class="case-section">
+                <div class="case-label">Approach</div>
+                <p>Program-managed the end-to-end implementation of a third-party SDoH platform (Findhelp) integrated into Epic. Aligned the clinical, operational, marketing, and training workstreams under a single program structure. Drove EHR workflow design for screening capture, referral initiation, and closed-loop tracking.</p>
+            </div>
+            <div class="case-section">
+                <div class="case-label">Outcome</div>
+                <p>The platform became the enterprise-standard vehicle for translating the published health equity strategy into measurable operational activity. Screening capture moved from policy aspiration to a reliably executed clinical workflow across the system, with the reporting infrastructure required for disparity analysis.</p>
+            </div>
+        </div>
+
+        <div class="case-card fi fi-d1">
+            <span class="case-focus">Quality &amp; Regulatory</span>
+            <h3>Clinical variation portfolio program management</h3>
+            <p class="case-attr">Multi-hospital health system, Southeast U.S.</p>
+            <div class="case-section">
+                <div class="case-label">Challenge</div>
+                <p>A large and growing set of clinical variation and quality initiatives with different owners, executive sponsors, timelines, and reporting standards. Without a coordinating program management layer, initiatives risked stalling between functions, overlapping in scope, or failing to deliver or document their projected financial impact.</p>
+            </div>
+            <div class="case-section">
+                <div class="case-label">Approach</div>
+                <p>Stood up program management for a portfolio spanning 28 initiatives across three fiscal years. Established governance cadences and standardized executive reporting templates. Tracked each initiative against financial and clinical targets, coordinated cross-functional workgroups, and drove decision and escalation flow for initiative-level risks.</p>
+            </div>
+            <div class="case-section">
+                <div class="case-label">Outcome</div>
+                <p>The portfolio delivered $10M+ in documented savings across FY21&ndash;23. The program management structure became the operational mechanism through which the system translated clinical quality strategy into reportable, sustained financial and clinical outcomes &mdash; a layer the organization had previously lacked.</p>
+            </div>
+        </div>
+
+        <div class="case-card fi fi-d2">
+            <span class="case-focus">Managed Care &amp; Transitions</span>
+            <h3>Behavioral Health Medicaid LOB decommissioning</h3>
+            <p class="case-attr">Managed care operations within a multi-hospital health system</p>
+            <div class="case-section">
+                <div class="case-label">Challenge</div>
+                <p>A behavioral health Medicaid line of business requiring decommissioning, with 30,000+ members to be transitioned to new managed care plans. Care continuity was non-negotiable: gaps in behavioral health coverage risk disrupted medications, interrupted therapy relationships, and regulatory exposure &mdash; on a compressed regulatory timeline.</p>
+            </div>
+            <div class="case-section">
+                <div class="case-label">Approach</div>
+                <p>Directed the decommissioning program end-to-end. Coordinated regulatory stakeholder engagement, clinical handoff protocols, member communication sequencing, and transition logistics across multiple receiving plans. Established member-level tracking mechanisms for continuity verification and escalation pathways for at-risk cases.</p>
+            </div>
+            <div class="case-section">
+                <div class="case-label">Outcome</div>
+                <p>All 30,000+ members transitioned to new managed care plans with care continuity maintained. The LOB closed on regulatory timeline without member-disruption findings.</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -338,6 +432,59 @@
     </div>
 </section>
 
+<!-- FAQ -->
+<div class="faq-band" id="faq">
+    <section class="faq">
+        <div class="head fi">
+            <p class="stag ember">Frequently Asked</p>
+            <h2 class="sh">Common questions about engaging SCM Solutions.</h2>
+        </div>
+        <div class="faq-list">
+
+            <div class="faq-item fi">
+                <h3>What kinds of organizations does SCM Solutions work with?</h3>
+                <p>Healthcare organizations where program management discipline is required for high-visibility, multi-stakeholder initiatives. This typically means health systems, integrated health plans, managed care organizations, behavioral health networks, and pharmacy benefits companies. Adjacent organizations &mdash; venture-backed healthcare companies, healthcare technology vendors, provider groups &mdash; are considered case-by-case based on engagement fit.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>What does a typical engagement look like?</h3>
+                <p>Most engagements fall between 8 and 24 weeks and align to a natural operational rhythm: a quality program cycle, a regulatory submission, a line-of-business transition, a platform implementation, or an acquisition-integration window. Shorter advisory engagements and longer multi-quarter program leadership are both possible when scope warrants.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>How is confidentiality handled?</h3>
+                <p>All engagements operate under mutual non-disclosure agreements. Past engagement details referenced on this site are anonymized at the organization level. No client-identifying information is shared in public materials, case studies, or conversations with other prospective clients.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>How is pricing structured?</h3>
+                <p>Engagements are priced on a fixed-fee, milestone-based, or monthly retainer basis depending on engagement model and scope. Specific pricing is shared during a scoping conversation once fit and scope are understood. SCM Solutions does not publish a rate card because engagement pricing materially depends on scope complexity, stakeholder breadth, and timeline.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>What is out of scope?</h3>
+                <p>SCM Solutions is a program management practice. The scope does not include technical implementation (custom software development, IT infrastructure builds, EHR configuration work performed directly), licensed clinical practice, or legal and regulatory opinion work. These adjacent capabilities are often coordinated with during an engagement but are not delivered directly.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>Do engagements happen on-site or remotely?</h3>
+                <p>Program management work is primarily conducted remotely, with on-site presence coordinated for kickoff, executive working sessions, and key operational milestones. On-site percentage is defined per engagement based on client preference and the nature of the work.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>What is the current engagement availability?</h3>
+                <p>SCM Solutions takes on a limited number of engagements per year. Organizations with program management needs aligned to the focus areas above are invited to share context about the work &mdash; inquiries are evaluated against timing, scope, and fit on a rolling basis.</p>
+            </div>
+
+            <div class="faq-item fi">
+                <h3>How are inquiries handled?</h3>
+                <p>All inquiries receive a response. Initial scoping conversations are arranged when there is a plausible fit, and inquiries outside the current focus areas are answered honestly and directly.</p>
+            </div>
+
+        </div>
+    </section>
+</div>
+
 <!-- ABOUT -->
 <div class="about-band" id="about">
     <section class="about">
@@ -348,7 +495,7 @@
         <div class="about-body fi">
             <p>SCM Solutions LLC is an independent healthcare program management practice. It concentrates on complex, multi-stakeholder initiatives where execution quality materially affects regulatory, financial, or clinical outcomes.</p>
             <p>Every engagement draws on direct operational experience inside multi-hospital health systems, integrated health plans, Fortune 25 managed care organizations, national pharmacy benefits companies, and regional Medicaid plans &mdash; spanning quality and regulatory programs, health equity operationalization, and managed care transitions.</p>
-            <p>The practice is currently in a pre-launch period. Organizations interested in future engagement can join the notification list below.</p>
+            <p>The practice is selective about engagements, prioritizing work where focus-area fit and timing align to deliver measurable outcomes.</p>
         </div>
     </section>
 </div>
@@ -357,11 +504,11 @@
 <div class="contact-band" id="contact">
     <section class="contact">
         <div class="fi">
-            <p class="stag">Stay In Touch</p>
-            <h2 class="sh">Join the engagement notification list.</h2>
-            <p>SCM Solutions is currently in a pre-launch period. Organizations interested in future engagement are welcome to send a short note describing what they're working on &mdash; inquiries are evaluated against timing, scope, and fit, and all inquiries receive a response.</p>
+            <p class="stag">Connect</p>
+            <h2 class="sh">Connect with SCM Solutions.</h2>
+            <p>SCM Solutions takes on a limited number of engagements per year. Organizations with program management needs aligned to the focus areas above are invited to share context about the work &mdash; inquiries are evaluated against timing, scope, and fit.</p>
             <div class="email-line">
-                <a href="mailto&#58;contact&#64;scmsolutions&#46;org?subject=Add%20me%20to%20engagement%20notifications">
+                <a href="mailto&#58;contact&#64;scmsolutions&#46;org?subject=Engagement%20Inquiry">
                     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 6l8 5 8-5"/></svg>
                     contact&#64;scmsolutions&#46;org
                 </a>
@@ -377,9 +524,11 @@
         <div class="foot-links">
             <a href="#services">Focus Areas</a>
             <a href="#results">Results</a>
+            <a href="#cases">Case Studies</a>
             <a href="#process">Approach</a>
+            <a href="#faq">FAQ</a>
             <a href="#about">About</a>
-            <a href="#contact">Notify</a>
+            <a href="#contact">Connect</a>
         </div>
         <p class="copy">&copy; 2026 SCM Solutions LLC</p>
     </div>
