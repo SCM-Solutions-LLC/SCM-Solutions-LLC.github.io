@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Brand &amp; Play Store Assets — SCM Solutions / SteadiDay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background: var(--paper-2); }
+
+  .page-head {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .page-head .crumbs {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .page-head .crumbs a { color: var(--ink-3); }
+  .page-head .crumbs a:hover { color: var(--ink); }
+  .page-head h1 {
+    font-size: clamp(36px, 4vw, 56px);
+    margin-bottom: 16px;
+  }
+  .page-head p { font-size: 17px; color: var(--ink-2); max-width: 64ch; margin: 0; }
+
+  .asset-section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .asset-section h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    margin-bottom: 12px;
+  }
+  .asset-section .lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    margin: 0 0 40px;
+    max-width: 60ch;
+  }
+
+  .asset-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 900px) { .asset-grid.two { grid-template-columns: 1fr 1fr; gap: 40px; } }
+
+  .asset-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .asset-card-head {
+    padding: 22px 26px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .asset-card-head h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .asset-card-head .meta {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .asset-card-head .spec {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+  .asset-card-head .spec strong { color: var(--ink); display: block; font-weight: 500; }
+
+  .asset-canvas {
+    padding: 36px;
+    background: repeating-linear-gradient(45deg, var(--paper-2), var(--paper-2) 12px, var(--paper) 12px, var(--paper) 24px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 240px;
+  }
+
+  .asset-actions {
+    padding: 16px 22px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    background: var(--paper-2);
+  }
+  .dl-btn {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .dl-btn:hover { background: var(--accent); }
+  .dl-btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule-2); }
+  .dl-btn.ghost:hover { border-color: var(--ink); background: transparent; }
+
+  /* ====== ICON RENDERERS ====== */
+  /* SteadiDay Play icon (512x512) — uses provided icon */
+  #sd-play-icon {
+    width: 256px; height: 256px;
+    border-radius: 56px;
+    overflow: hidden;
+    background: oklch(0.96 0.012 85);
+    box-shadow: 0 12px 32px -10px oklch(0.4 0.06 150 / 0.25);
+  }
+  #sd-play-icon img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* SCM Solutions brand icon — refined typographic mark */
+  .scm-icon {
+    width: 256px; height: 256px;
+    border-radius: 48px;
+    background: oklch(0.18 0.012 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    position: relative;
+    box-shadow: 0 12px 32px -10px oklch(0.18 0.04 250 / 0.4);
+  }
+  .scm-icon .mark {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 92px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .scm-icon .mark .dot {
+    color: oklch(0.62 0.10 245);
+    font-weight: 600;
+    margin-left: 2px;
+  }
+  .scm-icon .corner-lines {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .scm-icon .corner-lines i {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: oklch(0.62 0.10 245);
+    border-radius: 1px;
+  }
+  .scm-icon .corner-lines i:nth-child(2) { width: 20px; opacity: 0.7; }
+  .scm-icon .corner-lines i:nth-child(3) { width: 12px; opacity: 0.4; }
+
+  /* SCM icon variants */
+  .scm-icon.cream {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .scm-icon.cream .mark .dot { color: var(--accent); }
+  .scm-icon.cream .corner-lines i { background: var(--accent); }
+
+  .scm-icon.mono {
+    background: oklch(0.96 0.008 85);
+    color: oklch(0.18 0.012 250);
+    border: 1px solid var(--rule);
+  }
+  .scm-icon.mono .mark .dot { color: oklch(0.18 0.012 250); }
+  .scm-icon.mono .corner-lines i { background: oklch(0.45 0.01 250); }
+
+  /* Wordmark display */
+  .wordmark-display {
+    padding: 60px 50px;
+    background: var(--paper);
+    border-radius: 18px;
+    border: 1px solid var(--rule);
+    text-align: center;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 76px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .wordmark .dot { color: var(--accent); font-weight: 600; }
+  .wordmark .light { color: var(--ink-3); font-weight: 400; }
+
+  /* Logo sizing demo strip */
+  .size-strip {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: var(--paper);
+    border-radius: 18px;
+    border: 1px solid var(--rule);
+  }
+  .size-strip .scm-icon { box-shadow: 0 4px 12px -4px oklch(0.18 0.04 250 / 0.2); }
+  .size-strip .scm-icon.s32 { width: 32px; height: 32px; border-radius: 8px; }
+  .size-strip .scm-icon.s32 .mark { font-size: 13px; }
+  .size-strip .scm-icon.s32 .corner-lines { display: none; }
+  .size-strip .scm-icon.s64 { width: 64px; height: 64px; border-radius: 14px; }
+  .size-strip .scm-icon.s64 .mark { font-size: 24px; }
+  .size-strip .scm-icon.s64 .corner-lines { bottom: 8px; right: 8px; gap: 2px; }
+  .size-strip .scm-icon.s64 .corner-lines i { width: 10px; height: 1.5px; }
+  .size-strip .scm-icon.s64 .corner-lines i:nth-child(2) { width: 7px; }
+  .size-strip .scm-icon.s64 .corner-lines i:nth-child(3) { width: 4px; }
+  .size-strip .scm-icon.s128 { width: 128px; height: 128px; border-radius: 24px; }
+  .size-strip .scm-icon.s128 .mark { font-size: 46px; }
+  .size-strip .scm-icon.s128 .corner-lines { bottom: 14px; right: 14px; }
+  .size-strip .scm-icon.s128 .corner-lines i { width: 16px; }
+  .size-strip .scm-icon.s128 .corner-lines i:nth-child(2) { width: 11px; }
+  .size-strip .scm-icon.s128 .corner-lines i:nth-child(3) { width: 7px; }
+
+  /* ====== FEATURE GRAPHIC (1024 x 500) ====== */
+  .feature-canvas {
+    background: var(--paper-2);
+    padding: 32px;
+    overflow: auto;
+  }
+  .feature-graphic {
+    width: 1024px;
+    height: 500px;
+    position: relative;
+    background: linear-gradient(135deg, oklch(0.68 0.075 152) 0%, oklch(0.55 0.080 150) 60%, oklch(0.42 0.065 158) 100%);
+    overflow: hidden;
+    border-radius: 4px;
+    font-family: var(--sans);
+    color: white;
+  }
+  /* Subtle topographic curves */
+  .feature-graphic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 400px at 80% 110%, oklch(0.78 0.06 150 / 0.5) 0%, transparent 60%),
+      radial-gradient(ellipse 500px 300px at 15% -10%, oklch(0.85 0.05 150 / 0.4) 0%, transparent 60%);
+  }
+  .feature-graphic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(135deg,
+        transparent 0,
+        transparent 78px,
+        oklch(0.98 0 0 / 0.04) 78px,
+        oklch(0.98 0 0 / 0.04) 80px);
+    pointer-events: none;
+  }
+  .fg-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 60px 80px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+  .fg-left { flex: 1.05; }
+  .fg-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.92;
+    background: oklch(0 0 0 / 0.15);
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .fg-eyebrow .icon-mini {
+    width: 26px; height: 26px;
+    border-radius: 6px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .fg-eyebrow .icon-mini img { width: 100%; height: 100%; }
+  .fg-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin: 0 0 22px;
+  }
+  .fg-title em { font-style: italic; color: oklch(0.97 0.025 145); }
+  .fg-sub {
+    font-size: 22px;
+    line-height: 1.4;
+    max-width: 18ch;
+    opacity: 0.92;
+    margin: 0 0 30px;
+  }
+  .fg-trust {
+    display: inline-flex;
+    gap: 18px;
+    font-size: 14px;
+    opacity: 0.88;
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+  }
+  .fg-trust span { display: inline-flex; align-items: center; gap: 8px; }
+  .fg-trust span::before {
+    content: "";
+    width: 6px; height: 6px; border-radius: 50%;
+    background: white;
+  }
+
+  .fg-right {
+    flex: 0.75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .fg-phone {
+    width: 240px;
+    height: 480px;
+    background: #0c1620;
+    border-radius: 38px;
+    padding: 8px;
+    box-shadow: 0 30px 60px -15px oklch(0.2 0.06 150 / 0.45), 0 8px 24px -8px oklch(0.15 0.04 240 / 0.3);
+    transform: rotate(-6deg);
+  }
+  .fg-phone-screen {
+    width: 100%; height: 100%;
+    background: var(--sd-paper);
+    border-radius: 32px;
+    overflow: hidden;
+  }
+  .fg-phone-screen img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+  }
+
+  /* Alt feature graphic — wordmark only */
+  .feature-graphic.alt {
+    background: oklch(0.96 0.012 85);
+    color: var(--ink);
+  }
+  .feature-graphic.alt::before {
+    background:
+      radial-gradient(ellipse 500px 280px at 90% 110%, oklch(0.66 0.075 152 / 0.32) 0%, transparent 70%),
+      radial-gradient(ellipse 380px 240px at 8% -10%, oklch(0.72 0.07 150 / 0.22) 0%, transparent 70%);
+  }
+  .feature-graphic.alt::after {
+    background: none;
+  }
+  .feature-graphic.alt .fg-content { padding: 60px 90px; }
+  .feature-graphic.alt .fg-eyebrow {
+    background: var(--paper);
+    color: oklch(0.42 0.07 150);
+    border: 1px solid oklch(0.85 0.012 85);
+  }
+  .feature-graphic.alt .fg-title { color: var(--ink); font-size: 76px;}
+  .feature-graphic.alt .fg-title em { color: oklch(0.45 0.075 152); }
+  .feature-graphic.alt .fg-sub { color: var(--ink-2); }
+  .feature-graphic.alt .fg-trust { color: var(--ink-3); }
+  .feature-graphic.alt .fg-trust span::before { background: oklch(0.55 0.075 150); }
+  .feature-graphic.alt .fg-right { flex: 0.55; }
+  .feature-graphic.alt .fg-icon-large {
+    width: 280px; height: 280px;
+    border-radius: 60px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -15px oklch(0.4 0.06 150 / 0.35);
+    transform: rotate(-4deg);
+  }
+  .feature-graphic.alt .fg-icon-large img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+
+  /* SCM feature graphic — cream/editorial version (was previously too dark to read) */
+  .feature-graphic.scm {
+    background: oklch(0.96 0.012 85);
+    color: var(--ink);
+  }
+  .feature-graphic.scm::before {
+    background:
+      radial-gradient(ellipse 600px 320px at 88% 110%, oklch(0.86 0.06 75 / 0.45) 0%, transparent 70%),
+      radial-gradient(ellipse 420px 260px at 8% -10%, oklch(0.55 0.08 245 / 0.10) 0%, transparent 70%);
+  }
+  .feature-graphic.scm::after {
+    background:
+      repeating-linear-gradient(135deg,
+        transparent 0,
+        transparent 78px,
+        oklch(0.18 0.012 250 / 0.025) 78px,
+        oklch(0.18 0.012 250 / 0.025) 80px);
+  }
+  .feature-graphic.scm .fg-content { padding: 60px 90px; }
+  .feature-graphic.scm .fg-eyebrow {
+    background: var(--paper);
+    color: oklch(0.36 0.085 245);
+    border: 1px solid oklch(0.85 0.012 85);
+  }
+  .feature-graphic.scm .fg-title { color: var(--ink); font-size: 76px; }
+  .feature-graphic.scm .fg-title em { color: oklch(0.36 0.085 245); }
+  .feature-graphic.scm .fg-sub { color: var(--ink-2); }
+  .feature-graphic.scm .fg-trust { color: var(--ink-3); }
+  .feature-graphic.scm .fg-trust span::before { background: oklch(0.36 0.085 245); }
+  .feature-graphic.scm .fg-right { flex: 0.55; }
+  .feature-graphic.scm .fg-right .scm-icon {
+    transform: rotate(-4deg);
+    width: 300px; height: 300px;
+    border-radius: 64px;
+    box-shadow: 0 30px 60px -15px oklch(0.05 0.04 250 / 0.35);
+  }
+  .feature-graphic.scm .fg-right .scm-icon .mark { font-size: 108px; }
+  .feature-graphic.scm .fg-right .scm-icon .corner-lines { bottom: 32px; right: 32px; }
+  .feature-graphic.scm .fg-right .scm-icon .corner-lines i { width: 32px; height: 2.5px; }
+  .feature-graphic.scm .fg-right .scm-icon .corner-lines i:nth-child(2) { width: 22px; }
+  .feature-graphic.scm .fg-right .scm-icon .corner-lines i:nth-child(3) { width: 14px; }
+
+  /* Spec sheet */
+  .spec-sheet {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 28px 32px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .spec-sheet h4 {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 12px;
+    font-weight: 500;
+  }
+  .spec-sheet h4 + h4 { margin-top: 22px; }
+  .spec-sheet ul { padding-left: 20px; margin: 0; }
+  .spec-sheet code {
+    background: var(--paper-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body data-screen-label="Brand & Play Assets">
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="index.html" aria-label="SCM Solutions home">
+      <span>SCM</span><span class="dot">.</span><span class="light">&nbsp;Solutions</span>
+    </a>
+    <nav class="topnav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="steadiday.html">SteadiDay</a>
+      <a href="#scm-brand" class="is-active">Brand</a>
+      <a href="#play-assets">Play Assets</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">SCM Solutions</a> &nbsp;/&nbsp; Brand &amp; Play Store Assets</div>
+    <h1>Brand &amp; Google&nbsp;Play assets.</h1>
+    <p>An internal-facing review page showing the new SCM Solutions wordmark and a refined icon system, plus the Play Console submission assets for SteadiDay (512×512 developer icon + 1024×500 feature graphic). Use the download buttons below each artifact to export a clean PNG at the correct spec.</p>
+  </div>
+</div>
+
+<!-- ============ SCM BRAND ============ -->
+<section id="scm-brand" class="asset-section" data-screen-label="SCM Brand">
+  <div class="wrap">
+    <div class="eyebrow">Section 01</div>
+    <h2 style="margin-top: 18px;">SCM Solutions — <em>wordmark &amp; icon.</em></h2>
+    <p class="lede">A typographic system rather than a drawn logo. The wordmark is set in Source Serif 4 with a deliberate accent period — a small visual hook that scales from favicon to letterhead. The icon mark crops the wordmark inside a deep ink square with three descending rules at the corner, suggesting structured execution.</p>
+
+    <div class="asset-grid two">
+
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Wordmark</h3>
+            <div class="meta">Primary lockup · web header, email signature, letterhead</div>
+          </div>
+          <div class="spec"><strong>Source Serif 4</strong>500 wt · -0.025em tracking</div>
+        </div>
+        <div class="asset-canvas" id="wordmark-canvas">
+          <div class="wordmark-display">
+            <div class="wordmark">SCM<span class="dot">.</span><span class="light"> Solutions</span></div>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn ghost" data-export="wordmark-canvas" data-name="scm-wordmark-2x.png" data-scale="2">Export 2× PNG</button>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Icon — dark</h3>
+            <div class="meta">Favicon, app tile, social avatar (primary)</div>
+          </div>
+          <div class="spec"><strong>1024×1024</strong>Export at any size</div>
+        </div>
+        <div class="asset-canvas" id="scm-icon-dark-canvas">
+          <div class="scm-icon" id="scm-icon-dark">
+            <div class="mark">SCM<span class="dot">.</span></div>
+            <div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn" data-export="scm-icon-dark" data-name="scm-icon-dark-1024.png" data-size="1024">Export 1024 PNG</button>
+          <button class="dl-btn ghost" data-export="scm-icon-dark" data-name="scm-icon-dark-512.png" data-size="512">512 PNG</button>
+          <button class="dl-btn ghost" data-export="scm-icon-dark" data-name="scm-icon-dark-256.png" data-size="256">256 PNG</button>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Icon — cream</h3>
+            <div class="meta">Reversed lockup for dark backgrounds</div>
+          </div>
+          <div class="spec"><strong>1024×1024</strong>Same geometry, inverted</div>
+        </div>
+        <div class="asset-canvas" id="scm-icon-cream-canvas">
+          <div class="scm-icon cream" id="scm-icon-cream">
+            <div class="mark">SCM<span class="dot">.</span></div>
+            <div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn" data-export="scm-icon-cream" data-name="scm-icon-cream-1024.png" data-size="1024">Export 1024 PNG</button>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Icon — monochrome</h3>
+            <div class="meta">For documents, signature, monochrome contexts</div>
+          </div>
+          <div class="spec"><strong>1024×1024</strong>No accent color</div>
+        </div>
+        <div class="asset-canvas" id="scm-icon-mono-canvas">
+          <div class="scm-icon mono" id="scm-icon-mono">
+            <div class="mark">SCM<span class="dot">.</span></div>
+            <div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn" data-export="scm-icon-mono" data-name="scm-icon-mono-1024.png" data-size="1024">Export 1024 PNG</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin: 32px 0 16px;">
+      <div class="divider-num">Sizing test — 32 / 64 / 128 / 256 px</div>
+    </div>
+    <div class="size-strip">
+      <div class="scm-icon s32"><div class="mark">SCM<span class="dot">.</span></div><div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div></div>
+      <div class="scm-icon s64"><div class="mark">SCM<span class="dot">.</span></div><div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div></div>
+      <div class="scm-icon s128"><div class="mark">SCM<span class="dot">.</span></div><div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div></div>
+      <div class="scm-icon"><div class="mark">SCM<span class="dot">.</span></div><div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div></div>
+    </div>
+
+    <div style="margin-top: 32px;">
+      <div class="spec-sheet">
+        <h4>Color values</h4>
+        <ul>
+          <li>Ink (primary): <code>oklch(0.18 0.012 250)</code> · approx <code>#1A2230</code></li>
+          <li>Paper (background): <code>oklch(0.985 0.005 85)</code> · approx <code>#FAF8F4</code></li>
+          <li>Accent (period &amp; rules): <code>oklch(0.36 0.085 245)</code> · approx <code>#2C4D7A</code></li>
+        </ul>
+        <h4>Typography</h4>
+        <ul>
+          <li>Wordmark — Source Serif 4, weight 500, -0.025em letterspacing</li>
+          <li>Period — same weight, +1 visual size, accent color (a deliberate "punctuation as ornament" device)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAY ASSETS ============ -->
+<section id="play-assets" class="asset-section" data-screen-label="Play Assets">
+  <div class="wrap">
+    <div class="eyebrow">Section 02</div>
+    <h2 style="margin-top: 18px;">Google Play — <em>SteadiDay assets.</em></h2>
+    <p class="lede">The two assets Google Play Console requires: a 512×512 developer icon (your existing SteadiDay mark, cleaned up and exported to spec), and a 1024×500 feature graphic that runs at the top of the store listing.</p>
+
+    <!-- 512 Icon -->
+    <div class="asset-grid two">
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>SteadiDay app icon</h3>
+            <div class="meta">Play Console · Developer icon</div>
+          </div>
+          <div class="spec"><strong>512×512 PNG</strong>32-bit, no transparency</div>
+        </div>
+        <div class="asset-canvas" id="sd-play-icon-canvas">
+          <div id="sd-play-icon"><img src="img/icon.jpeg" alt="SteadiDay icon" /></div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn" data-export="sd-play-icon" data-name="steadiday-icon-512.png" data-size="512">Export 512×512 PNG</button>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Spec checklist</h3>
+            <div class="meta">Google Play Console requirements</div>
+          </div>
+        </div>
+        <div style="padding: 28px 32px;">
+          <div class="spec-sheet" style="border: none; padding: 0;">
+            <h4>App icon (developer icon)</h4>
+            <ul>
+              <li>512 × 512 px</li>
+              <li>32-bit PNG (with alpha)</li>
+              <li>Maximum file size: 1 MB</li>
+              <li>No transparency in the visible area — Play renders it on a tile</li>
+            </ul>
+            <h4>Feature graphic</h4>
+            <ul>
+              <li>1024 × 500 px</li>
+              <li>JPG or 24-bit PNG (no transparency)</li>
+              <li>Maximum file size: 15 MB</li>
+              <li>No text inside the inner ~924 × 400 safe area is guaranteed visible</li>
+            </ul>
+            <h4>Tip</h4>
+            <ul>
+              <li>Avoid putting critical text near the right edge — Play may overlay a "Play" button there.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature graphic (primary) -->
+    <div style="margin-top: 40px;">
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Feature graphic — primary</h3>
+            <div class="meta">Phone-forward · For the Play store listing</div>
+          </div>
+          <div class="spec"><strong>1024 × 500 px</strong>24-bit PNG</div>
+        </div>
+        <div class="asset-canvas feature-canvas">
+          <div class="feature-graphic" id="fg-primary">
+            <div class="fg-content">
+              <div class="fg-left">
+                <div class="fg-eyebrow">
+                  <span class="icon-mini"><img src="img/icon.jpeg" alt="" /></span>
+                  SteadiDay
+                </div>
+                <h2 class="fg-title">Stay on track,<br/><em>daily.</em></h2>
+                <p class="fg-sub">Tasks and reminders, simplified — for people 50+.</p>
+                <div class="fg-trust">
+                  <span>Free</span>
+                  <span>No account</span>
+                  <span>Private</span>
+                </div>
+              </div>
+              <div class="fg-right">
+                <div class="fg-phone">
+                  <div class="fg-phone-screen"><img src="img/screenshot-tasks.png" alt="" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn" data-export="fg-primary" data-name="steadiday-feature-graphic-1024x500.png" data-width="1024" data-height="500">Export 1024×500 PNG</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature graphic (cream alt) -->
+    <div style="margin-top: 40px;">
+      <div class="asset-card">
+        <div class="asset-card-head">
+          <div>
+            <h3>Feature graphic — cream alternate</h3>
+            <div class="meta">Brand-forward · Lighter, more editorial</div>
+          </div>
+          <div class="spec"><strong>1024 × 500 px</strong>24-bit PNG</div>
+        </div>
+        <div class="asset-canvas feature-canvas">
+          <div class="feature-graphic alt" id="fg-alt">
+            <div class="fg-content">
+              <div class="fg-left">
+                <div class="fg-eyebrow">
+                  <span class="icon-mini"><img src="img/icon.jpeg" alt="" /></span>
+                  SteadiDay
+                </div>
+                <h2 class="fg-title">A calmer way to keep track of <em>the day.</em></h2>
+                <p class="fg-sub">Tasks, medications, and appointments — in one simple place.</p>
+                <div class="fg-trust">
+                  <span>Free</span>
+                  <span>No account</span>
+                  <span>Private</span>
+                </div>
+              </div>
+              <div class="fg-right">
+                <div class="fg-icon-large"><img src="img/icon.jpeg" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <button class="dl-btn" data-export="fg-alt" data-name="steadiday-feature-graphic-cream-1024x500.png" data-width="1024" data-height="500">Export 1024×500 PNG</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ OPTIONAL: SCM FEATURE-style ============ -->
+<section class="asset-section" data-screen-label="SCM Header">
+  <div class="wrap">
+    <div class="eyebrow">Section 03 · Optional</div>
+    <h2 style="margin-top: 18px;">SCM Solutions — <em>social header.</em></h2>
+    <p class="lede">A LinkedIn / X cover image in the same 1024×500 ratio, using the new SCM mark. Useful if you want to mirror the visual identity across your business&rsquo;s public profiles.</p>
+
+    <div class="asset-card">
+      <div class="asset-card-head">
+        <div>
+          <h3>SCM Solutions cover image</h3>
+          <div class="meta">LinkedIn / X / general social header</div>
+        </div>
+        <div class="spec"><strong>1024 × 500 px</strong>24-bit PNG</div>
+      </div>
+      <div class="asset-canvas feature-canvas">
+        <div class="feature-graphic scm" id="fg-scm">
+          <div class="fg-content">
+            <div class="fg-left">
+              <div class="fg-eyebrow">Healthcare Program Management</div>
+              <h2 class="fg-title">Programs that <em>can&rsquo;t slip.</em></h2>
+              <p class="fg-sub">Independent program management for complex healthcare initiatives.</p>
+              <div class="fg-trust">
+                <span>Quality &amp; Regulatory</span>
+                <span>Health Equity</span>
+                <span>Managed Care</span>
+              </div>
+            </div>
+            <div class="fg-right">
+              <div class="scm-icon">
+                <div class="mark">SCM<span class="dot">.</span></div>
+                <div class="corner-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="asset-actions">
+        <button class="dl-btn" data-export="fg-scm" data-name="scm-solutions-header-1024x500.png" data-width="1024" data-height="500">Export 1024×500 PNG</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom" style="padding-top: 0; border-top: none;">
+      <div>© 2026 SCM Solutions LLC · Internal asset review page</div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="index.html">SCM Solutions</a>
+        <a href="steadiday.html">SteadiDay</a>
+        <a href="mailto:contact@scmsolutions.org">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- html-to-image for exports -->
+<script src="https://unpkg.com/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
+<script>
+  document.querySelectorAll('[data-export]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const id = btn.dataset.export;
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const name = btn.dataset.name || 'export.png';
+      const fixedSize = btn.dataset.size ? Number(btn.dataset.size) : null;
+      const fixedWidth = btn.dataset.width ? Number(btn.dataset.width) : null;
+      const fixedHeight = btn.dataset.height ? Number(btn.dataset.height) : null;
+      const scale = btn.dataset.scale ? Number(btn.dataset.scale) : null;
+
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Exporting…';
+
+      try {
+        const rect = el.getBoundingClientRect();
+        let opts = { pixelRatio: 2, backgroundColor: null };
+
+        if (fixedSize) {
+          opts.width = fixedSize;
+          opts.height = fixedSize;
+          opts.pixelRatio = fixedSize / Math.max(rect.width, rect.height);
+        } else if (fixedWidth && fixedHeight) {
+          opts.width = fixedWidth;
+          opts.height = fixedHeight;
+          opts.pixelRatio = fixedWidth / rect.width;
+        } else if (scale) {
+          opts.pixelRatio = scale;
+        }
+
+        const dataUrl = await htmlToImage.toPng(el, opts);
+        const link = document.createElement('a');
+        link.download = name;
+        link.href = dataUrl;
+        link.click();
+      } catch (e) {
+        console.error(e);
+        alert('Export failed: ' + e.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
