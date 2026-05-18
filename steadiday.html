@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SteadiDay — A calmer way to keep track of the day</title>
+<meta name="description" content="SteadiDay is a simple, large-type daily app for staying on top of tasks, appointments, and medications. Built for people 50+. Private by default. From SCM Solutions LLC." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href="img/icon.jpeg" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* SteadiDay-specific overrides — warmer, bigger, calmer */
+  body { background: var(--sd-paper); }
+  body .topnav { background: color-mix(in oklch, var(--sd-paper) 92%, transparent); }
+  .sd-hero {
+    padding: clamp(80px, 11vw, 160px) 0 clamp(40px, 6vw, 80px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .sd-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (min-width: 980px) {
+    .sd-hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 80px; }
+  }
+  .sd-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sd-sage-2);
+    background: var(--sd-sage-bg);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+  .sd-eyebrow .pip {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sd-sage-2);
+  }
+  .sd-hero h1 {
+    font-size: clamp(48px, 6vw, 84px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    margin-top: 28px;
+  }
+  .sd-hero h1 em { color: var(--sd-sage-2); }
+  .sd-hero p.lede {
+    font-size: clamp(20px, 1.6vw, 24px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin-top: 32px;
+    max-width: 30ch;
+  }
+  .sd-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 44px;
+    align-items: center;
+  }
+  .sd-cta-row .btn { font-size: 17px; padding: 16px 28px; }
+  .sd-cta-row .btn-primary { background: var(--sd-sage-2); color: white; }
+  .sd-cta-row .btn-primary:hover { background: var(--sd-night); }
+  .sd-trust {
+    margin-top: 36px;
+    font-size: 14.5px;
+    color: var(--ink-3);
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .sd-trust span { display: inline-flex; align-items: center; gap: 8px; }
+  .sd-trust span::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--sd-sage-2);
+  }
+
+  /* Hero phone artwork */
+  .sd-phone-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 4/5;
+  }
+  .sd-phone-bg {
+    position: absolute;
+    inset: 8% 4%;
+    background: radial-gradient(ellipse at 30% 30%, oklch(0.94 0.04 145) 0%, oklch(0.88 0.05 150) 60%, oklch(0.82 0.06 150) 100%);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.85;
+  }
+  .sd-phone {
+    position: relative;
+    width: min(76%, 380px);
+    aspect-ratio: 9/19;
+    background: #0c1620;
+    border-radius: 44px;
+    padding: 10px;
+    box-shadow: 0 30px 60px -20px oklch(0.25 0.05 150 / 0.35), 0 8px 24px -8px oklch(0.2 0.04 240 / 0.25);
+  }
+  .sd-phone-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--sd-paper);
+    border-radius: 34px;
+    overflow: hidden;
+    position: relative;
+  }
+  .sd-phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Section type bump */
+  .sd-section h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: -0.025em;
+  }
+  .sd-section p, .sd-section li {
+    font-size: 18px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  /* What it does — 3-col */
+  .sd-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  @media (min-width: 800px) {
+    .sd-features { grid-template-columns: repeat(3, 1fr); }
+  }
+  .sd-feature {
+    background: var(--sd-paper);
+    padding: 40px 32px 44px;
+  }
+  .sd-feature-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--sd-sage-bg);
+    color: var(--sd-sage-2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .sd-feature h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin: 0 0 12px;
+    line-height: 1.2;
+  }
+  .sd-feature p { margin: 0; font-size: 17px; }
+
+  /* Who it's for */
+  .sd-audience {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  @media (min-width: 900px) {
+    .sd-audience { grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  }
+  .sd-audience-card {
+    padding: 36px 32px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+  }
+  .sd-audience-card h4 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px;
+  }
+
+  /* Principles */
+  .sd-principles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  @media (min-width: 700px) { .sd-principles { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 980px) { .sd-principles { grid-template-columns: repeat(4, 1fr); } }
+  .sd-principle {
+    padding: 36px 28px 36px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 700px) {
+    .sd-principle { border-right: 1px solid var(--rule); padding-right: 28px; }
+    .sd-principle:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 28px; }
+  }
+  @media (min-width: 980px) {
+    .sd-principle { padding: 36px 24px; border-right: 1px solid var(--rule); border-bottom: none; }
+    .sd-principle:nth-child(2n) { padding: 36px 24px; border-right: 1px solid var(--rule); }
+    .sd-principle:first-child { padding-left: 0; }
+    .sd-principle:last-child { padding-right: 0; border-right: none; }
+  }
+  .sd-principle-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--sd-sage-2);
+    margin-bottom: 18px;
+  }
+  .sd-principle h4 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+  .sd-principle p { margin: 0; font-size: 16px; color: var(--ink-2); }
+
+  /* CTA band */
+  .sd-cta-band {
+    background: linear-gradient(180deg, oklch(0.94 0.04 145) 0%, oklch(0.90 0.05 148) 100%);
+    border-radius: 24px;
+    padding: clamp(48px, 6vw, 80px);
+    text-align: center;
+    margin: 0 auto;
+  }
+  .sd-cta-band h2 {
+    color: var(--sd-night);
+    max-width: 18ch;
+    margin: 0 auto 20px;
+  }
+  .sd-cta-band p {
+    color: var(--sd-night);
+    opacity: 0.8;
+    max-width: 50ch;
+    margin: 0 auto 36px;
+    font-size: 18px;
+  }
+  .sd-cta-band-row {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  .sd-coming {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: white;
+    color: var(--sd-night);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .sd-coming .pip { width: 8px; height: 8px; background: var(--sd-sage-2); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+</head>
+<body data-screen-label="SteadiDay — Product Page">
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="index.html" aria-label="SCM Solutions home">
+      <span>SCM</span><span class="dot">.</span><span class="light">&nbsp;Solutions</span>
+    </a>
+    <nav class="topnav-links" aria-label="Primary">
+      <a href="#what">What it is</a>
+      <a href="#who">Who it&rsquo;s for</a>
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="index.html">SCM Solutions →</a>
+    </nav>
+    <a class="btn btn-primary cta" href="#get" style="background: var(--sd-sage-2);">
+      Get the app
+      <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================ HERO ================ -->
+  <section class="sd-hero" data-screen-label="Hero">
+    <div class="wrap">
+      <div class="sd-hero-grid">
+        <div>
+          <span class="sd-eyebrow"><span class="pip"></span> Now on Google Play — coming soon to iOS</span>
+          <h1>A calmer way to keep track of <em>the day.</em></h1>
+          <p class="lede">
+            SteadiDay is a simple, large-type daily app for staying on top of tasks, appointments, and medications. Made for people 50+ — and the families who help them.
+          </p>
+          <div class="sd-cta-row">
+            <a class="btn btn-primary" href="#get">
+              Get the app
+              <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#what">See how it works</a>
+          </div>
+          <div class="sd-trust">
+            <span>Free to download</span>
+            <span>No account required</span>
+            <span>Data stays on your device</span>
+          </div>
+        </div>
+
+        <div class="sd-phone-wrap" aria-hidden="true">
+          <div class="sd-phone-bg"></div>
+          <div class="sd-phone">
+            <div class="sd-phone-screen">
+              <img src="img/screenshot-tasks.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ WHAT IT IS ================ -->
+  <section id="what" class="sd-section" data-screen-label="What it is">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">What it is</div>
+          <h2 style="margin-top: 28px;">Everything you need to <em>stay steady,</em> in one screen.</h2>
+        </div>
+        <p class="lede" style="font-size: 19px;">
+          SteadiDay keeps tasks, medications, appointments, and health information together — without the clutter of a calendar app or the complexity of a patient portal.
+        </p>
+      </div>
+
+      <div class="sd-features">
+        <div class="sd-feature">
+          <div class="sd-feature-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Daily tasks &amp; reminders</h3>
+          <p>Add a task in one tap. Browse common templates — appointments, refills, walks, calls — instead of starting from scratch.</p>
+        </div>
+        <div class="sd-feature">
+          <div class="sd-feature-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 3v4M15 3v4M4 11h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Medications &amp; appointments</h3>
+          <p>Keep medications, doctor visits, and pharmacy calls in one place. Sorted by time of day, never buried in another app.</p>
+        </div>
+        <div class="sd-feature">
+          <div class="sd-feature-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Your data, on your device</h3>
+          <p>Health and personal information stays on your phone. Used only to display your day to you — never sold, never shared.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ WHO IT'S FOR ================ -->
+  <section id="who" class="sd-section" data-screen-label="Who it's for">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Who it&rsquo;s for</div>
+          <h2 style="margin-top: 28px;">Built for the people <em>who&rsquo;ve been holding it all in their head.</em></h2>
+        </div>
+        <p class="lede" style="font-size: 19px;">
+          SteadiDay isn&rsquo;t a productivity app trying to be a health app. It&rsquo;s a daily companion designed from the ground up around the rhythm of managing your health.
+        </p>
+      </div>
+
+      <div class="sd-audience">
+        <div class="sd-audience-card">
+          <h4>For people 50 and up</h4>
+          <p style="font-size: 17px; line-height: 1.6;">More medications. More appointments. More to remember. SteadiDay uses large type, big tap targets, and plain language — so the app does the remembering, and you can focus on the day.</p>
+        </div>
+        <div class="sd-audience-card">
+          <h4>For adult children helping a parent</h4>
+          <p style="font-size: 17px; line-height: 1.6;">A simple shared picture of the day — without setting up a portal, sharing logins, or asking your parent to learn a new system. SteadiDay was designed to be set up once and used quietly after that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ PRINCIPLES ================ -->
+  <section id="how" class="sd-section" data-screen-label="How it works">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Design Principles</div>
+          <h2 style="margin-top: 28px;">Designed differently <em>on purpose.</em></h2>
+        </div>
+        <p class="lede" style="font-size: 19px;">
+          Four decisions that make SteadiDay feel different from the calendar, notes, and reminder apps already on your phone.
+        </p>
+      </div>
+
+      <div class="sd-principles">
+        <div class="sd-principle">
+          <div class="sd-principle-num">01 / Type</div>
+          <h4>Larger by default.</h4>
+          <p>Body text is 20pt or larger. Headings are bigger still. No squinting, no settings to dig through to make it readable.</p>
+        </div>
+        <div class="sd-principle">
+          <div class="sd-principle-num">02 / Tap</div>
+          <h4>Big targets, every time.</h4>
+          <p>Every button and every list item is at least 56 pixels tall. No tiny chevrons or accidental taps.</p>
+        </div>
+        <div class="sd-principle">
+          <div class="sd-principle-num">03 / Words</div>
+          <h4>Plain language.</h4>
+          <p>“Add a task.” “Browse templates.” Not “Discover.” Not “Explore.” The buttons say what they do.</p>
+        </div>
+        <div class="sd-principle">
+          <div class="sd-principle-num">04 / Privacy</div>
+          <h4>Quiet by default.</h4>
+          <p>No account. No login. No data leaves the device. Free to download, free to use — built as a service, not a funnel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ PRIVACY ================ -->
+  <section id="privacy" class="sd-section" data-screen-label="Privacy">
+    <div class="wrap">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start;">
+        <div style="max-width: 60ch;">
+          <div class="eyebrow">Privacy Promise</div>
+          <h2 style="margin-top: 28px; margin-bottom: 24px;">Your health information <em>belongs to you.</em></h2>
+          <p style="font-size: 19px; color: var(--ink-2); line-height: 1.6;">
+            SteadiDay was built by a healthcare program management practice, not an ad-tech company. That distinction matters. Everything you enter — tasks, medications, appointments, notes — stays on your device. It is used only to display your day to you. It is never sold, never shared, and never combined with anyone else&rsquo;s information for any reason.
+          </p>
+          <p style="font-size: 19px; color: var(--ink-2); line-height: 1.6;">
+            There is no account to create. There is no profile. There is no advertising network behind the app. SteadiDay is offered freely as a tool — that is the whole arrangement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ GET / CTA ================ -->
+  <section id="get" data-screen-label="Get the app">
+    <div class="wrap">
+      <div class="sd-cta-band">
+        <div class="divider-num" style="color: var(--sd-night); opacity: 0.6; margin-bottom: 14px;">Available now</div>
+        <h2>Get SteadiDay on <em>Google Play.</em></h2>
+        <p>Free to download. No account needed. Available on Android today — coming to iOS next.</p>
+        <div class="sd-cta-band-row">
+          <a class="btn btn-primary" href="#" style="background: var(--sd-night); color: white;">
+            Download on Google Play
+            <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <span class="sd-coming"><span class="pip"></span> iOS — coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================ FOOTER ================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <img src="img/icon.jpeg" alt="SteadiDay icon" style="width: 56px; height: 56px; border-radius: 12px;" />
+          <div>
+            <div style="font-family: var(--serif); font-size: 24px; font-weight: 500; letter-spacing: -0.015em;">SteadiDay</div>
+            <div style="font-size: 13.5px; color: var(--ink-3); font-family: var(--mono); margin-top: 2px;">An SCM Solutions product</div>
+          </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 15px; color: var(--ink-2); max-width: 44ch;">
+          A calmer way to keep track of the day. For people 50+ and the families who help them. Free, private, no account needed.
+        </p>
+      </div>
+      <div>
+        <div class="divider-num" style="margin-bottom: 14px;">About the maker</div>
+        <a class="foot-product" href="index.html">
+          <div style="width: 56px; height: 56px; border-radius: 12px; background: oklch(0.18 0.012 250); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -0.02em;">
+            SCM<span style="color: var(--accent-2); margin-left: 1px;">.</span>
+          </div>
+          <div class="foot-product-text">
+            <div class="label">Independent practice</div>
+            <div class="title">SCM Solutions LLC</div>
+            <div class="desc">Healthcare program management consulting.</div>
+          </div>
+          <svg class="arrow" width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 SCM Solutions LLC. SteadiDay is a product of SCM Solutions LLC.</div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#what">What it is</a>
+        <a href="#who">Who it&rsquo;s for</a>
+        <a href="#privacy">Privacy</a>
+        <a href="index.html">SCM Solutions</a>
+        <a href="mailto:contact@scmsolutions.org">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
