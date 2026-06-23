@@ -3,54 +3,55 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>TidyMap AI — Practical organization for real spaces</title>
+<title>TidyMap AI — Practical home organization</title>
 <meta name="description" content="Upload photos or a short video of your messy pantry or storage space. Get a practical organization map, a move-by-move plan, and optional storage recommendations. A prototype from SCM Solutions LLC." />
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="img/icon.jpeg" />
 <style>
 /* ============================================================
    TidyMap AI — self-contained prototype
-   Soft, neutral, practical. Mobile-first.
+   Warm, approachable, practical. Mobile-first.
    ============================================================ */
 :root{
-  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  --serif:"Source Serif 4","Source Serif Pro",Georgia,serif;
+  --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --serif:"Fraunces","Source Serif 4",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
 
-  /* warm neutral paper + calm sage/clay accents */
-  --bg:        oklch(0.985 0.006 95);
+  /* warm terracotta / coral palette */
+  --bg:        oklch(0.975 0.012 55);
   --surface:   oklch(1 0 0);
-  --surface-2: oklch(0.972 0.008 95);
-  --surface-3: oklch(0.955 0.012 95);
-  --ink:       oklch(0.26 0.012 250);
-  --ink-2:     oklch(0.44 0.010 250);
-  --ink-3:     oklch(0.60 0.010 250);
-  --line:      oklch(0.90 0.010 95);
-  --line-2:    oklch(0.84 0.012 95);
+  --surface-2: oklch(0.968 0.012 55);
+  --surface-3: oklch(0.948 0.016 55);
+  --ink:       oklch(0.26 0.016 55);
+  --ink-2:     oklch(0.44 0.014 55);
+  --ink-3:     oklch(0.58 0.012 55);
+  --line:      oklch(0.90 0.012 55);
+  --line-2:    oklch(0.84 0.015 55);
 
-  --sage:      oklch(0.58 0.062 155);   /* primary action / calm green */
-  --sage-2:    oklch(0.50 0.066 155);
-  --sage-bg:   oklch(0.95 0.028 155);
-  --sage-line: oklch(0.83 0.045 155);
+  --primary:      oklch(0.62 0.14 30);
+  --primary-2:    oklch(0.55 0.15 30);
+  --primary-bg:   oklch(0.95 0.035 30);
+  --primary-line: oklch(0.83 0.06 30);
 
-  --clay:      oklch(0.64 0.090 55);    /* warm secondary, used sparingly */
+  --teal:      oklch(0.56 0.08 195);
+  --teal-bg:   oklch(0.95 0.028 195);
+  --teal-line: oklch(0.82 0.045 195);
+  --teal-ink:  oklch(0.40 0.08 195);
+
+  --clay:      oklch(0.64 0.090 55);
   --clay-bg:   oklch(0.95 0.030 65);
 
-  --blue-bg:   oklch(0.95 0.028 240);
-  --blue-line: oklch(0.82 0.045 240);
-  --blue-ink:  oklch(0.46 0.080 245);
-
   --good:      oklch(0.58 0.075 155);
-  --warn:      oklch(0.62 0.110 70);
-  --warn-bg:   oklch(0.95 0.035 75);
+  --warn:      oklch(0.60 0.110 65);
+  --warn-bg:   oklch(0.95 0.035 65);
 
   --radius: 16px;
   --radius-sm: 11px;
-  --shadow: 0 1px 2px oklch(0.4 0.02 250 / .05), 0 8px 24px oklch(0.4 0.02 250 / .06);
-  --shadow-lg: 0 2px 6px oklch(0.4 0.02 250 / .08), 0 20px 48px oklch(0.4 0.02 250 / .10);
+  --shadow: 0 1px 2px oklch(0.4 0.02 55 / .05), 0 8px 24px oklch(0.4 0.02 55 / .06);
+  --shadow-lg: 0 2px 6px oklch(0.4 0.02 55 / .08), 0 20px 48px oklch(0.4 0.02 55 / .10);
   --maxw: 760px;
 }
 *{box-sizing:border-box}
@@ -65,13 +66,13 @@ img{max-width:100%;display:block}
 button{font-family:inherit;font-size:inherit;cursor:pointer}
 a{color:inherit;text-decoration:none}
 
-h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-0.02em;line-height:1.1;margin:0}
-h1{font-size:clamp(30px,7vw,46px);letter-spacing:-0.03em;line-height:1.04}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin:0}
+h1{font-size:clamp(36px,8vw,56px);letter-spacing:-0.03em;line-height:1.04}
 h2{font-size:clamp(24px,4.6vw,34px);letter-spacing:-0.025em}
 h3{font-size:clamp(18px,3vw,21px)}
 p{margin:0 0 1em}
 .lede{font-size:clamp(17px,2.4vw,20px);color:var(--ink-2);line-height:1.5}
-.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-2)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
 .muted{color:var(--ink-3)}
 .small{font-size:13.5px;line-height:1.5}
 
@@ -89,7 +90,7 @@ p{margin:0 0 1em}
 .brand{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:-.01em}
 .brand .logo{
   width:28px;height:28px;border-radius:8px;flex:none;
-  background:linear-gradient(135deg,var(--sage),var(--sage-2));
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
   display:grid;place-items:center;color:#fff;
 }
 .brand .logo svg{width:17px;height:17px}
@@ -99,12 +100,13 @@ p{margin:0 0 1em}
 .appbar .restart{
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink-3);background:none;border:1px solid var(--line-2);border-radius:999px;padding:7px 13px;
+  transition:.16s;
 }
 .appbar .restart:hover{color:var(--ink);border-color:var(--ink-3)}
 
 /* progress rail under appbar */
 .rail{height:3px;background:var(--surface-3);overflow:hidden}
-.rail > i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--sage-2));
+.rail > i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2));
   width:0%;transition:width .45s cubic-bezier(.4,0,.2,1)}
 
 main{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad,18px)}
@@ -123,13 +125,15 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad,18px)}
   padding:14px 22px;transition:.16s;line-height:1;
 }
 .btn svg{width:17px;height:17px;flex:none}
-.btn-primary{background:var(--sage);color:#fff;box-shadow:0 1px 2px oklch(.4 .05 155/.2)}
-.btn-primary:hover{background:var(--sage-2)}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 1px 2px oklch(.4 .08 30/.2)}
+.btn-primary:hover{background:var(--primary-2);transform:translateY(-1px);box-shadow:0 2px 6px oklch(.4 .08 30/.25)}
+.btn-primary:active{transform:translateY(0);background:oklch(0.50 0.15 30)}
 .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
-.btn-ghost:hover{border-color:var(--ink-3);background:var(--surface-2)}
+.btn-ghost:hover{border-color:var(--ink-3);background:var(--surface-2);transform:translateY(-1px)}
+.btn-ghost:active{transform:translateY(0)}
 .btn-block{width:100%}
 .btn-sm{padding:10px 16px;font-size:14px}
-.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none !important}
 
 /* sticky footer nav for flow screens */
 .flow-foot{
@@ -139,12 +143,13 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad,18px)}
   padding:12px var(--pad,18px) calc(12px + env(safe-area-inset-bottom));
 }
 .flow-foot-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px}
-.flow-foot .back{background:none;border:none;color:var(--ink-2);font-weight:500;padding:12px 4px;display:inline-flex;align-items:center;gap:6px}
+.flow-foot .back{background:none;border:none;color:var(--ink-2);font-weight:500;padding:12px 4px;display:inline-flex;align-items:center;gap:6px;transition:.16s}
 .flow-foot .back:hover{color:var(--ink)}
 .flow-foot .spacer{flex:1}
 
 /* ---------- Cards & selectables ---------- */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);transition:box-shadow .2s}
+.card:hover{box-shadow:0 1px 3px oklch(0.4 0.02 55 / .06), 0 10px 28px oklch(0.4 0.02 55 / .08)}
 .pad{padding:clamp(18px,4vw,26px)}
 .grid{display:grid;gap:12px}
 .grid-2{grid-template-columns:1fr}
@@ -155,16 +160,17 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad,18px)}
   text-align:left;width:100%;background:var(--surface);border:1.5px solid var(--line);
   border-radius:var(--radius-sm);padding:15px 16px;transition:.15s;display:flex;gap:13px;align-items:flex-start;color:var(--ink);
 }
-.opt:hover{border-color:var(--sage-line);background:var(--sage-bg)}
-.opt.sel{border-color:var(--sage);background:var(--sage-bg);box-shadow:0 0 0 1px var(--sage)}
-.opt .ico{font-size:22px;line-height:1;flex:none;margin-top:1px}
+.opt:hover{border-color:var(--primary-line);background:var(--primary-bg)}
+.opt.sel{border-color:var(--primary);background:var(--primary-bg);box-shadow:0 0 0 1px var(--primary)}
+.opt .ico{font-size:22px;line-height:1;flex:none;margin-top:1px;display:flex;align-items:center;justify-content:center;color:var(--primary)}
+.opt .ico svg{width:22px;height:22px}
 .opt .ttl{font-weight:600}
 .opt .sub{font-size:13px;color:var(--ink-3);margin-top:2px}
 .opt .tick{margin-left:auto;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line-2);flex:none;display:grid;place-items:center;transition:.15s}
-.opt.sel .tick{background:var(--sage);border-color:var(--sage)}
+.opt.sel .tick{background:var(--primary);border-color:var(--primary)}
 .opt .tick svg{width:13px;height:13px;color:#fff;opacity:0;transition:.15s}
 .opt.sel .tick svg{opacity:1}
-.opt .rec{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-2);background:var(--sage-bg);border:1px solid var(--sage-line);border-radius:5px;padding:2px 6px;margin-left:auto;flex:none}
+.opt .rec{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);background:var(--primary-bg);border:1px solid var(--primary-line);border-radius:5px;padding:2px 6px;margin-left:auto;flex:none}
 
 /* chip-style multiselect */
 .chips{display:flex;flex-wrap:wrap;gap:9px}
@@ -172,8 +178,8 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad,18px)}
   background:var(--surface);border:1.5px solid var(--line-2);border-radius:999px;
   padding:9px 15px;font-size:14px;font-weight:500;color:var(--ink-2);transition:.14s;
 }
-.chip:hover{border-color:var(--sage-line);color:var(--ink)}
-.chip.sel{background:var(--sage);border-color:var(--sage);color:#fff}
+.chip:hover{border-color:var(--primary-line);color:var(--ink)}
+.chip.sel{background:var(--primary);border-color:var(--primary);color:#fff}
 
 label.field{display:block;margin-bottom:16px}
 label.field > span{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
@@ -181,16 +187,16 @@ input[type=text],input[type=number],select,textarea{
   width:100%;font-family:inherit;font-size:15px;color:var(--ink);
   background:var(--surface);border:1.5px solid var(--line-2);border-radius:10px;padding:11px 13px;
 }
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px var(--sage-bg)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-bg)}
 textarea{resize:vertical;min-height:84px}
 
 .helper{font-size:13px;color:var(--ink-3);background:var(--surface-2);border:1px dashed var(--line-2);border-radius:10px;padding:11px 13px;display:flex;gap:9px;align-items:flex-start}
-.helper svg{width:16px;height:16px;flex:none;color:var(--sage-2);margin-top:2px}
+.helper svg{width:16px;height:16px;flex:none;color:var(--primary);margin-top:2px}
 
 /* segmented yes/no */
 .seg{display:inline-flex;border:1.5px solid var(--line-2);border-radius:9px;overflow:hidden;background:var(--surface)}
-.seg button{border:none;background:none;padding:8px 16px;font-size:13.5px;font-weight:500;color:var(--ink-2)}
-.seg button.sel{background:var(--sage);color:#fff}
+.seg button{border:none;background:none;padding:8px 16px;font-size:13.5px;font-weight:500;color:var(--ink-2);transition:.14s}
+.seg button.sel{background:var(--primary);color:#fff}
 .qa{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid var(--line)}
 .qa:last-child{border-bottom:none}
 .qa .q{font-size:14.5px;font-weight:500}
@@ -198,8 +204,12 @@ textarea{resize:vertical;min-height:84px}
 /* ---------- Benefit cards (landing) ---------- */
 .benefits{display:grid;gap:13px;grid-template-columns:1fr}
 @media(min-width:560px){.benefits{grid-template-columns:1fr 1fr}}
-.benefit{padding:18px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface)}
-.benefit .b-ico{width:38px;height:38px;border-radius:10px;background:var(--sage-bg);color:var(--sage-2);display:grid;place-items:center;margin-bottom:12px}
+.benefit{padding:18px;border-radius:var(--radius-sm);background:var(--surface);border:1px solid var(--line);transition:box-shadow .2s}
+.benefit:hover{box-shadow:0 2px 8px oklch(0.4 0.02 55 / .08)}
+@media(max-width:559px){
+  .benefit{border:none;border-left:2px solid var(--primary);border-radius:0;background:transparent;padding:12px 16px}
+}
+.benefit .b-ico{width:38px;height:38px;border-radius:10px;background:var(--primary-bg);color:var(--primary);display:grid;place-items:center;margin-bottom:12px}
 .benefit .b-ico svg{width:20px;height:20px}
 .benefit h4{margin:0 0 4px;font-size:15.5px;font-weight:600}
 .benefit p{margin:0;font-size:13.5px;color:var(--ink-3);line-height:1.45}
@@ -210,9 +220,9 @@ textarea{resize:vertical;min-height:84px}
 .load-step .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--line-2);flex:none;display:grid;place-items:center;transition:.3s}
 .load-step .dot svg{width:12px;height:12px;color:#fff;opacity:0}
 .load-step.doing{color:var(--ink)}
-.load-step.doing .dot{border-color:var(--sage);border-right-color:transparent;animation:spin .7s linear infinite}
+.load-step.doing .dot{border-color:var(--primary);border-right-color:transparent;animation:spin .7s linear infinite}
 .load-step.done{color:var(--ink-2)}
-.load-step.done .dot{background:var(--sage);border-color:var(--sage)}
+.load-step.done .dot{background:var(--primary);border-color:var(--primary)}
 .load-step.done .dot svg{opacity:1}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -225,7 +235,7 @@ textarea{resize:vertical;min-height:84px}
 .frame .pantry-mini i{background:var(--surface);border-radius:2px;border:1px solid var(--line)}
 
 /* ---------- Results ---------- */
-.section-head{margin:34px 0 14px}
+.section-head{margin:40px 0 14px}
 .section-head .eyebrow{margin-bottom:6px;display:block}
 .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(min-width:560px){.kpis{grid-template-columns:repeat(4,1fr)}}
@@ -235,62 +245,66 @@ textarea{resize:vertical;min-height:84px}
 
 .taglist{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 0}
 .tag{font-size:12.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--ink-2)}
-.tag.green{background:var(--sage-bg);border-color:var(--sage-line);color:var(--sage-2)}
-.tag.warn{background:var(--warn-bg);border-color:oklch(.85 .06 75);color:var(--warn)}
+.tag.green{background:var(--primary-bg);border-color:var(--primary-line);color:var(--primary)}
+.tag.warn{background:var(--warn-bg);border-color:oklch(.85 .06 65);color:var(--warn)}
 
 .problems{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .problems li{position:relative;padding-left:26px;font-size:14.5px;color:var(--ink-2)}
 .problems li::before{content:"";position:absolute;left:6px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--clay)}
-.opps li::before{background:var(--sage)}
+.opps li::before{background:var(--primary)}
 
 /* organization map — shelves */
 .shelf{display:grid;grid-template-columns:64px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:10px;background:var(--surface)}
-.shelf .label{background:var(--surface-3);padding:14px 10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-right:1px solid var(--line)}
+.shelf .label{background:var(--surface-3);padding:18px 10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-right:1px solid var(--line)}
 .shelf .label .lv{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-.shelf .label .ic{font-size:20px;margin-top:3px}
-.shelf .body{padding:13px 15px}
+.shelf .label .ic{margin-top:3px;color:var(--ink-3);display:flex;align-items:center;justify-content:center}
+.shelf .label .ic svg{width:20px;height:20px}
+.shelf .body{padding:16px 15px}
 .shelf .zone{font-weight:600;font-size:15px;margin-bottom:7px}
 .shelf .why{font-size:13px;color:var(--ink-3);margin-top:9px;line-height:1.45;display:flex;gap:7px;align-items:flex-start}
 .shelf .why svg{width:14px;height:14px;flex:none;margin-top:2px;color:var(--ink-3)}
-.shelf.eye{border-color:var(--sage-line)}
-.shelf.eye .label{background:var(--sage-bg)}
-.shelf.eye .label .lv{color:var(--sage-2)}
+.shelf.eye{border-color:var(--primary-line)}
+.shelf.eye .label{background:var(--primary-bg)}
+.shelf.eye .label .lv{color:var(--primary)}
+.shelf.eye .label .ic{color:var(--primary)}
 
 .feat-grid{display:grid;gap:9px;grid-template-columns:1fr}
 @media(min-width:520px){.feat-grid{grid-template-columns:1fr 1fr}}
 .feat{display:flex;gap:11px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 13px}
-.feat .fi{font-size:18px;flex:none}
+.feat .fi{flex:none;color:var(--primary);display:flex;align-items:center;justify-content:center}
+.feat .fi svg{width:20px;height:20px}
 .feat .ft{font-weight:600;font-size:14px}
 .feat .fd{font-size:12.5px;color:var(--ink-3);margin-top:2px;line-height:1.4}
 
 /* move-by-move / guided checklist */
 .steps{display:grid;gap:10px}
 .task{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 15px;transition:.2s;display:grid;grid-template-columns:auto 1fr;gap:13px}
-.task.done{background:var(--sage-bg);border-color:var(--sage-line)}
+.task.done{background:var(--primary-bg);border-color:var(--primary-line)}
 .task .check{width:26px;height:26px;border-radius:50%;border:2px solid var(--line-2);background:var(--surface);display:grid;place-items:center;flex:none;transition:.18s}
 .task .check svg{width:14px;height:14px;color:#fff;opacity:0;transition:.18s}
-.task.done .check{background:var(--sage);border-color:var(--sage)}
+.task.done .check{background:var(--primary);border-color:var(--primary)}
 .task.done .check svg{opacity:1}
 .task .num{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
 .task .tname{font-weight:600;font-size:15px;margin:2px 0 0}
 .task.done .tname{text-decoration:line-through;color:var(--ink-3)}
 .task .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;align-items:center}
-.task .time{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.task .time{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px;display:inline-flex;align-items:center;gap:5px}
+.task .time svg{width:12px;height:12px}
 .task .why2{font-size:13px;color:var(--ink-3);margin-top:8px;line-height:1.45}
 .task .acts{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
-.task .acts button{font-size:12px;font-weight:500;border-radius:7px;padding:6px 11px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2)}
+.task .acts button{font-size:12px;font-weight:500;border-radius:7px;padding:6px 11px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);transition:.14s}
 .task .acts button:hover{border-color:var(--ink-3);color:var(--ink)}
-.task .acts .mark{border-color:var(--sage);color:var(--sage-2);background:var(--sage-bg)}
-.task.done .acts .mark{background:var(--sage);color:#fff;border-color:var(--sage)}
+.task .acts .mark{border-color:var(--primary);color:var(--primary);background:var(--primary-bg)}
+.task.done .acts .mark{background:var(--primary);color:#fff;border-color:var(--primary)}
 
 .progwrap{position:sticky;top:60px;z-index:5;background:var(--bg);padding:12px 0 14px;margin-bottom:4px}
 .progwrap .lab{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:7px}
 .progbar{height:9px;background:var(--surface-3);border-radius:999px;overflow:hidden}
-.progbar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sage),var(--sage-2));transition:width .35s cubic-bezier(.2,.7,.3,1)}
+.progbar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--primary-2));transition:width .35s cubic-bezier(.2,.7,.3,1)}
 
 /* after preview */
 .after-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
-.after-tab{font-size:13px;font-weight:500;border:1.5px solid var(--line-2);background:var(--surface);border-radius:999px;padding:8px 14px;color:var(--ink-2)}
+.after-tab{font-size:13px;font-weight:500;border:1.5px solid var(--line-2);background:var(--surface);border-radius:999px;padding:8px 14px;color:var(--ink-2);transition:.14s}
 .after-tab.sel{background:var(--ink);border-color:var(--ink);color:#fff}
 .after-stage{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
 .ba{display:grid;grid-template-columns:1fr 1fr}
@@ -301,17 +315,19 @@ textarea{resize:vertical;min-height:84px}
 .pantry-vis .row{background:var(--surface);border-radius:4px;display:flex;gap:3px;padding:4px;align-items:stretch}
 .pantry-vis.messy .row{gap:2px}
 .pantry-vis .row b{flex:1;border-radius:2px;background:var(--line-2);display:block}
-.pantry-vis.tidy .row b{background:var(--sage-line)}
-.pantry-vis.tidy .row{outline:1px dashed var(--sage-line);outline-offset:-2px}
+.pantry-vis.tidy .row b{background:var(--primary-line)}
+.pantry-vis.tidy .row{outline:1px dashed var(--primary-line);outline-offset:-2px}
 .pantry-vis .row .lbl{position:absolute}
 
 /* upgrade products */
 .prod{display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:start;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;background:var(--surface);margin-bottom:10px}
-.prod .pic{width:46px;height:46px;border-radius:10px;background:var(--clay-bg);display:grid;place-items:center;font-size:22px;flex:none}
+.prod .pic{width:46px;height:46px;border-radius:10px;background:var(--clay-bg);display:grid;place-items:center;flex:none;color:var(--clay)}
+.prod .pic svg{width:22px;height:22px}
 .prod h4{margin:0 0 4px;font-size:15px;font-weight:600}
 .prod .pwhy{font-size:13px;color:var(--ink-3);line-height:1.45}
 .prod .pmeta{font-size:12px;color:var(--ink-3);margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
-.prod .pmeta span{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.prod .pmeta span{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px;display:inline-flex;align-items:center;gap:4px}
+.prod .pmeta span svg{width:12px;height:12px}
 .prod .cost{font-weight:600;font-family:var(--serif);font-size:17px;white-space:nowrap}
 
 .shopping{list-style:none;padding:0;margin:0}
@@ -321,13 +337,13 @@ textarea{resize:vertical;min-height:84px}
 
 .callout{border-radius:var(--radius-sm);padding:14px 16px;font-size:13.5px;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
 .callout svg{width:18px;height:18px;flex:none;margin-top:1px}
-.callout.warn{background:var(--warn-bg);border:1px solid oklch(.86 .06 75);color:oklch(.42 .09 70)}
+.callout.warn{background:var(--warn-bg);border:1px solid oklch(.86 .06 65);color:oklch(.42 .09 55)}
 .callout.warn svg{color:var(--warn)}
-.callout.info{background:var(--blue-bg);border:1px solid var(--blue-line);color:var(--blue-ink)}
-.callout.info svg{color:var(--blue-ink)}
+.callout.info{background:var(--teal-bg);border:1px solid var(--teal-line);color:var(--teal-ink)}
+.callout.info svg{color:var(--teal-ink)}
 
 .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);z-index:90;
-  background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:500;
+  background:var(--primary);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:500;
   box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.3s;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -339,6 +355,12 @@ textarea{resize:vertical;min-height:84px}
   font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between}
 .foot-mini a{color:var(--ink-2)}
 .foot-mini a:hover{color:var(--ink)}
+
+/* Landing hero left-align on desktop */
+@media(min-width:560px){
+  .landing-hero{text-align:left !important}
+  .landing-hero .hero-actions{justify-content:flex-start !important}
+}
 </style>
 </head>
 <body>
@@ -362,32 +384,32 @@ textarea{resize:vertical;min-height:84px}
 
 <!-- ============================================================ 1. LANDING -->
 <section class="screen active" id="screen-landing">
-  <div style="text-align:center;padding:14px 0 4px">
-    <span class="eyebrow">AI-powered practical organization for real spaces</span>
-    <h1 style="margin:16px auto 0;max-width:18ch">Turn messy storage spaces into organized systems.</h1>
-    <p class="lede" style="margin:16px auto 0;max-width:42ch">Upload photos or a short video of your pantry, cabinet, closet, or garage shelf and get a practical step-by-step organization plan.</p>
-    <div style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+  <div class="landing-hero" style="text-align:center;padding:14px 0 4px">
+    <span class="eyebrow">Practical home organization</span>
+    <h1 style="margin:16px auto 0;max-width:18ch">Show us the mess. We&rsquo;ll make the plan.</h1>
+    <p class="lede" style="margin:16px auto 0;max-width:44ch">Snap a few photos of your pantry, closet, or shelf. We&rsquo;ll figure out what goes where &mdash; and tell you exactly how to get there.</p>
+    <div class="hero-actions" style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:24px">
       <button class="btn btn-primary" onclick="go('space')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         Organize My Space
       </button>
       <button class="btn btn-ghost" onclick="runDemo()">See Example Plan</button>
     </div>
-    <p class="small muted" style="margin-top:14px">Show us your messy pantry. We&rsquo;ll tell you exactly what goes where.</p>
+    <p class="small muted" style="margin-top:14px">Your messy pantry &rarr; a plan you can follow in under an hour.</p>
   </div>
 
   <div class="card pad" style="margin-top:30px;background:var(--surface-2)">
     <p style="margin:0;font-size:15.5px;line-height:1.55;color:var(--ink-2)">
-      <strong style="color:var(--ink)">TidyMap AI does more than generate an &ldquo;after&rdquo; image.</strong>
-      It maps your current space, groups your items, and tells you exactly what to move, where to put it, and why &mdash; using what you already own first.
+      <strong style="color:var(--ink)">Most organization apps show you a pretty picture.</strong>
+      We&rsquo;d rather give you a plan you can actually follow &mdash; starting with the stuff you already own.
     </p>
   </div>
 
   <div class="benefits" style="margin-top:18px">
-    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h4>Use what you already have</h4><p>We plan around your existing shelves, bins, and baskets before suggesting anything new.</p></div>
-    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div><h4>Identify storage features</h4><p>Detect existing shelves, bins, hooks, drawers, and unused vertical space in your photos.</p></div>
-    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h4>A realistic move-by-move plan</h4><p>A guided checklist that tells you the order to work in &mdash; with time estimates and reasons.</p></div>
-    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div><h4>Optional shopping list</h4><p>Storage product recommendations only appear if you ask for them. Otherwise, $0.</p></div>
+    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h4>Start with what you own</h4><p>We plan around your existing shelves, bins, and baskets before suggesting anything new.</p></div>
+    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div><h4>We spot what&rsquo;s already there</h4><p>Shelves, bins, hooks, drawers, unused vertical space &mdash; we find it all in your photos.</p></div>
+    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h4>Step-by-step, not just before-and-after</h4><p>A guided checklist with time estimates and reasons, not just a pretty after photo.</p></div>
+    <div class="benefit"><div class="b-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div><h4>Buy stuff only if you want to</h4><p>Storage product ideas only show up if you ask. Otherwise, it costs you $0.</p></div>
   </div>
 
   <div style="text-align:center;margin-top:26px">
@@ -455,8 +477,8 @@ textarea{resize:vertical;min-height:84px}
 <section class="screen" id="screen-loading">
   <div style="text-align:center;padding:18px 0">
     <span class="eyebrow">Analyzing your space</span>
-    <h2 style="margin-top:12px">Building your organization plan</h2>
-    <p class="muted small">This is a mocked analysis for the prototype.</p>
+    <h2 style="margin-top:12px">Figuring out your space</h2>
+    <p class="muted small">Hang tight, this takes a moment.</p>
   </div>
   <div class="card pad">
     <div class="load-steps" id="load-steps"></div>
@@ -470,16 +492,16 @@ textarea{resize:vertical;min-height:84px}
 <!-- ============================================================ 7. DETECTION REVIEW -->
 <section class="screen" id="screen-review">
   <div class="step-label">Step 5 of 6 &middot; Confirm what we found</div>
-  <h2>Does this look right?</h2>
+  <h2>Did we get this right?</h2>
   <div class="helper" style="margin:14px 0 22px">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
     <span>Confirming this helps us create a more realistic organization plan. Nothing here has to be perfect.</span>
   </div>
 
-  <span class="eyebrow">Section A &middot; Detected existing features</span>
+  <span class="eyebrow">Detected existing features</span>
   <div class="grid" id="rev-features" style="margin-top:12px"></div>
 
-  <span class="eyebrow" style="display:block;margin-top:30px">Section B &middot; Detected item categories</span>
+  <span class="eyebrow" style="display:block;margin-top:30px">Detected item categories</span>
   <p class="small muted" style="margin:8px 0 0">Tap to remove anything that isn&rsquo;t in your space, or add what we missed.</p>
   <div class="chips" id="rev-cats" style="margin-top:14px"></div>
   <div style="display:flex;gap:9px;margin-top:14px">
@@ -491,7 +513,7 @@ textarea{resize:vertical;min-height:84px}
 <!-- ============================================================ 8. RESULTS DASHBOARD -->
 <section class="screen" id="screen-results">
   <span class="eyebrow">Your organization plan</span>
-  <h2 style="margin-top:8px" id="res-title">Your pantry, mapped out</h2>
+  <h2 style="margin-top:8px" id="res-title">Here&rsquo;s your plan</h2>
 
   <!-- A. Space summary -->
   <div class="card pad" style="margin-top:18px">
@@ -508,19 +530,19 @@ textarea{resize:vertical;min-height:84px}
         <ul class="problems" id="res-problems"></ul>
       </div>
       <div>
-        <div class="small" style="font-weight:600;margin-bottom:8px;color:var(--sage-2)">Biggest opportunities</div>
+        <div class="small" style="font-weight:600;margin-bottom:8px;color:var(--primary)">Biggest opportunities</div>
         <ul class="problems opps" id="res-opps"></ul>
       </div>
     </div>
   </div>
 
   <!-- B. Organization map -->
-  <div class="section-head"><span class="eyebrow">B &middot; Key feature</span><h3 style="margin-top:4px">Organization map &mdash; what goes where</h3></div>
+  <div class="section-head"><span class="eyebrow">Where everything goes</span><h3 style="margin-top:4px">Organization map &mdash; what goes where</h3></div>
   <div id="res-map"></div>
 
   <!-- C. Use existing first -->
-  <div class="section-head"><span class="eyebrow">C &middot; Key feature</span><h3 style="margin-top:4px">Use what you already have first</h3></div>
-  <div class="card pad" style="background:var(--sage-bg);border-color:var(--sage-line)">
+  <div class="section-head"><span class="eyebrow">Use what you&rsquo;ve got</span><h3 style="margin-top:4px">Use what you already have first</h3></div>
+  <div class="card pad" style="background:var(--primary-bg);border-color:var(--primary-line)">
     <p style="margin:0 0 14px;font-size:15px;color:var(--ink-2)" id="res-existing-lede"></p>
     <div class="feat-grid" id="res-existing"></div>
     <div class="callout info" style="margin-top:16px">
@@ -530,7 +552,7 @@ textarea{resize:vertical;min-height:84px}
   </div>
 
   <!-- D + E. Move-by-move / guided mode -->
-  <div class="section-head"><span class="eyebrow">D &amp; E &middot; Key feature</span><h3 style="margin-top:4px">Guided move-by-move plan</h3>
+  <div class="section-head"><span class="eyebrow">Your step-by-step guide</span><h3 style="margin-top:4px">Guided move-by-move plan</h3>
     <p class="small muted" style="margin-top:6px">Work top to bottom. Mark steps complete as you go.</p></div>
   <div class="progwrap">
     <div class="lab"><span id="prog-text">Step 0 of 9 complete</span><span id="prog-pct" class="muted">0%</span></div>
@@ -539,7 +561,7 @@ textarea{resize:vertical;min-height:84px}
   <div class="steps" id="res-steps"></div>
 
   <!-- F. Before/After -->
-  <div class="section-head"><span class="eyebrow">F &middot; Supporting preview</span><h3 style="margin-top:4px">Before / after preview</h3></div>
+  <div class="section-head"><span class="eyebrow">Before &amp; after</span><h3 style="margin-top:4px">Before / after preview</h3></div>
   <div class="after-tabs" id="after-tabs"></div>
   <div class="after-stage">
     <div class="ba">
@@ -555,7 +577,7 @@ textarea{resize:vertical;min-height:84px}
 
   <!-- G. Optional upgrades -->
   <div id="res-upgrades-wrap" class="hide">
-    <div class="section-head"><span class="eyebrow">G &middot; Optional</span><h3 style="margin-top:4px">Optional upgrade plan</h3>
+    <div class="section-head"><span class="eyebrow">Optional upgrades</span><h3 style="margin-top:4px">Optional upgrade plan</h3>
       <p class="small muted" style="margin-top:6px">Only because you said you&rsquo;re open to buying storage products. The $0 plan above works without any of these.</p></div>
     <div id="res-upgrades"></div>
     <div class="callout warn" style="margin-top:8px">
@@ -564,7 +586,7 @@ textarea{resize:vertical;min-height:84px}
     </div>
 
     <!-- H. Shopping list -->
-    <div class="section-head"><span class="eyebrow">H &middot; Optional</span><h3 style="margin-top:4px">Shopping list</h3></div>
+    <div class="section-head"><span class="eyebrow">Shopping list</span><h3 style="margin-top:4px">Shopping list</h3></div>
     <div class="card pad">
       <ul class="shopping" id="res-shopping"></ul>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1.5px solid var(--line)">
@@ -599,7 +621,7 @@ textarea{resize:vertical;min-height:84px}
 <!-- ============================================================ 10. SAVE / SHARE -->
 <section class="screen" id="screen-save">
   <div style="text-align:center;padding:10px 0 0">
-    <div class="b-ico" style="width:54px;height:54px;border-radius:14px;margin:0 auto 14px;background:var(--sage-bg);color:var(--sage-2);display:grid;place-items:center">
+    <div class="b-ico" style="width:54px;height:54px;border-radius:14px;margin:0 auto 14px;background:var(--primary-bg);color:var(--primary);display:grid;place-items:center">
       <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
     </div>
     <h2>Your plan is ready</h2>
@@ -634,11 +656,11 @@ textarea{resize:vertical;min-height:84px}
 <!-- ============================================================ DONE -->
 <section class="screen" id="screen-done">
   <div style="text-align:center;padding:40px 0">
-    <div class="b-ico" style="width:60px;height:60px;border-radius:16px;margin:0 auto 18px;background:var(--sage-bg);color:var(--sage-2);display:grid;place-items:center">
+    <div class="b-ico" style="width:60px;height:60px;border-radius:16px;margin:0 auto 18px;background:var(--primary-bg);color:var(--primary);display:grid;place-items:center">
       <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
     </div>
     <h2>Thank you</h2>
-    <p class="muted" style="max-width:36ch;margin:10px auto 0">Your feedback helps us learn whether a practical plan beats a pretty picture. That&rsquo;s the whole question this prototype is testing.</p>
+    <p class="muted" style="max-width:36ch;margin:10px auto 0">Your feedback tells us if a real plan beats a pretty picture. That&rsquo;s what we&rsquo;re here to find out.</p>
     <div style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:26px">
       <button class="btn btn-primary" onclick="go('results')">Back to my plan</button>
       <button class="btn btn-ghost" onclick="restart()">Organize another space</button>
@@ -649,7 +671,7 @@ textarea{resize:vertical;min-height:84px}
 </main>
 
 <div class="foot-mini">
-  <span>TidyMap AI &middot; Concept prototype by SCM Solutions LLC</span>
+  <span>TidyMap AI &middot; A prototype by <a href="index.html">SCM Solutions</a></span>
   <span><a href="index.html">scmsolutions.org</a></span>
 </div>
 
@@ -671,9 +693,77 @@ textarea{resize:vertical;min-height:84px}
 /* ============================================================
    State + demo data
    ============================================================ */
-const ICON = {
+
+/* Inline SVG icon helpers — Lucide-style line icons */
+const SVG = {
+  // Utility / UI
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
-  why:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+  why:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+  mapPin:'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  ruler:'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2"/></svg>',
+
+  // SPACES
+  pantry:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 8h16M4 14h16"/></svg>',
+  cabinet:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+  closet:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L16 8 L8 8 Z"/><path d="M12 8v10M8 18h8"/></svg>',
+  garage:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  attic:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-2-2H5L3 8"/><path d="M3 8v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8"/><path d="M12 12H3M21 12h-9"/></svg>',
+  laundry:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>',
+  kids:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  other:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>',
+
+  // CAPTURE
+  camera:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>',
+  video:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg>',
+
+  // Big upload zone icons
+  cameraBig:'<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>',
+  videoBig:'<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/></svg>',
+
+  // DEMO_FEATURES
+  layers:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.84z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>',
+  shoppingBag:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
+  archive:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>',
+  arrowsH:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>',
+  arrowsV:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg>',
+  arrowDown:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>',
+  xCircle:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>',
+  door:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"/><circle cx="15" cy="12" r="1"/></svg>',
+
+  // EXISTING extras
+  minusCircle:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>',
+  arrowDownCircle:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12l4 4 4-4"/></svg>',
+
+  // MAP
+  arrowUp:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>',
+  eye:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>',
+  alignCenter:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3M17 12H7M19 18H5"/></svg>',
+  panelRight:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/></svg>',
+
+  // UPGRADES
+  box:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-2-2H5L3 8"/><path d="M3 8v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8"/><path d="M12 12H3M21 12h-9"/></svg>',
+  barChart:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>',
+  refreshCw:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>',
+  layoutGrid:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+  trendingUp:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
+  lock:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
+  tag:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2z"/><path d="M7 7h.01"/></svg>',
+
+  // SAVE_OPTS
+  bookmark:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>',
+  download:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+  send:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="m22 2-11 11"/></svg>',
+  columns:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+  users:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+};
+
+/* Keep backward compat alias */
+const ICON = {
+  check: SVG.check,
+  why: SVG.why
 };
 
 const state = {
@@ -685,14 +775,14 @@ const state = {
 };
 
 const SPACES = [
-  {id:'pantry',ico:'🥫',ttl:'Pantry',rec:true},
-  {id:'cabinet',ico:'🍽️',ttl:'Kitchen cabinet'},
-  {id:'closet',ico:'🧥',ttl:'Closet'},
-  {id:'garage',ico:'🧰',ttl:'Garage shelf'},
-  {id:'attic',ico:'📦',ttl:'Attic / storage area'},
-  {id:'laundry',ico:'🧺',ttl:'Laundry room'},
-  {id:'kids',ico:'🧸',ttl:'Kids&rsquo; storage'},
-  {id:'other',ico:'➕',ttl:'Other'}
+  {id:'pantry',ico:SVG.pantry,ttl:'Pantry',rec:true},
+  {id:'cabinet',ico:SVG.cabinet,ttl:'Kitchen cabinet'},
+  {id:'closet',ico:SVG.closet,ttl:'Closet'},
+  {id:'garage',ico:SVG.garage,ttl:'Garage shelf'},
+  {id:'attic',ico:SVG.attic,ttl:'Attic / storage area'},
+  {id:'laundry',ico:SVG.laundry,ttl:'Laundry room'},
+  {id:'kids',ico:SVG.kids,ttl:'Kids’ storage'},
+  {id:'other',ico:SVG.other,ttl:'Other'}
 ];
 const GOALS = [
   ['find','Make items easier to find'],
@@ -702,12 +792,12 @@ const GOALS = [
   ['kid','Make it kid-friendly'],
   ['minimal','Create a minimal look'],
   ['shop','Prepare for storage product recommendations'],
-  ['unsure','I&rsquo;m not sure &mdash; suggest the best plan']
+  ['unsure','I’m not sure — suggest the best plan']
 ];
 const CAPTURE = [
-  {id:'photos',ico:'📷',ttl:'Upload photos',sub:'Best for most spaces — 3 to 5 photos'},
-  {id:'video',ico:'🎥',ttl:'Record or upload a short video',sub:'We extract key frames automatically'},
-  {id:'demo',ico:'✨',ttl:'Use demo example',sub:'See a finished plan with sample data'}
+  {id:'photos',ico:SVG.camera,ttl:'Upload photos',sub:'Best for most spaces — 3 to 5 photos'},
+  {id:'video',ico:SVG.video,ttl:'Record or upload a short video',sub:'We extract key frames automatically'},
+  {id:'demo',ico:SVG.sparkles,ttl:'Use demo example',sub:'See a finished plan with sample data'}
 ];
 const DETAIL_TOGGLES = [
   ['drill','Can you drill or install hardware?'],
@@ -734,31 +824,31 @@ const EFFORT = [
 
 /* Demo / mock AI output */
 const DEMO_FEATURES = [
-  {ico:'🪜',ttl:'5 shelves',sub:'Top shelf is hard to reach'},
-  {ico:'🧺',ttl:'2 baskets',sub:'Currently underused'},
-  {ico:'🗑️',ttl:'1 deep bin',sub:'Good for overflow'},
-  {ico:'↔️',ttl:'Open shelf space on the right',sub:'Unused'},
-  {ico:'↕️',ttl:'Unused vertical space',sub:'Above the cans'},
-  {ico:'⬇️',ttl:'Lower shelf',sub:'Can hold heavier items'},
-  {ico:'🚫',ttl:'No visible hooks',sub:'Detected'},
-  {ico:'🚪',ttl:'No door rack',sub:'Detected'}
+  {ico:SVG.layers,ttl:'5 shelves',sub:'Top shelf is hard to reach'},
+  {ico:SVG.shoppingBag,ttl:'2 baskets',sub:'Currently underused'},
+  {ico:SVG.archive,ttl:'1 deep bin',sub:'Good for overflow'},
+  {ico:SVG.arrowsH,ttl:'Open shelf space on the right',sub:'Unused'},
+  {ico:SVG.arrowsV,ttl:'Unused vertical space',sub:'Above the cans'},
+  {ico:SVG.arrowDown,ttl:'Lower shelf',sub:'Can hold heavier items'},
+  {ico:SVG.xCircle,ttl:'No visible hooks',sub:'Detected'},
+  {ico:SVG.door,ttl:'No door rack',sub:'Detected'}
 ];
-const DEMO_CATS = ['Snacks','Canned goods','Pasta & grains','Baking supplies','Spices & sauces','Breakfast items','Paper goods','Bulk overflow','Kids&rsquo; snacks','Loose packets','Duplicate items','Possible expired items'];
+const DEMO_CATS = ['Snacks','Canned goods','Pasta & grains','Baking supplies','Spices & sauces','Breakfast items','Paper goods','Bulk overflow','Kids’ snacks','Loose packets','Duplicate items','Possible expired items'];
 
 const MAP = [
-  {lv:'Top shelf',ic:'⬆️',zone:'Bulk overflow · Backup paper goods · Rarely used items',why:'These items are used less often and do not need to be easy to reach.'},
-  {lv:'Eye level',ic:'👁️',eye:true,zone:'Daily snacks · Breakfast items · Coffee or tea',why:'Frequently used items should be visible and easy to access.'},
-  {lv:'Middle shelf',ic:'🍝',zone:'Canned goods · Pasta · Grains · Dinner ingredients',why:'Meal-building items should be grouped together to reduce searching.'},
-  {lv:'Lower shelf',ic:'⬇️',zone:'Heavy items · Kid-friendly snacks · Large containers',why:'Heavy items are safer lower down, and kid snacks stay within reach.'},
-  {lv:'Door / side',ic:'🚪',zone:'Spices · Sauces · Small packets',why:'Small items are easier to manage in narrow zones or small organizers.'}
+  {lv:'Top shelf',ic:SVG.arrowUp,zone:'Bulk overflow · Backup paper goods · Rarely used items',why:'These items are used less often and do not need to be easy to reach.'},
+  {lv:'Eye level',ic:SVG.eye,eye:true,zone:'Daily snacks · Breakfast items · Coffee or tea',why:'Frequently used items should be visible and easy to access.'},
+  {lv:'Middle shelf',ic:SVG.alignCenter,zone:'Canned goods · Pasta · Grains · Dinner ingredients',why:'Meal-building items should be grouped together to reduce searching.'},
+  {lv:'Lower shelf',ic:SVG.arrowDown,zone:'Heavy items · Kid-friendly snacks · Large containers',why:'Heavy items are safer lower down, and kid snacks stay within reach.'},
+  {lv:'Door / side',ic:SVG.panelRight,zone:'Spices · Sauces · Small packets',why:'Small items are easier to manage in narrow zones or small organizers.'}
 ];
 const EXISTING = [
-  {ico:'🧺',ft:'Reuse: 2 baskets',fd:'Use these for snacks and breakfast items.'},
-  {ico:'🗑️',ft:'Reuse: deep bin',fd:'Use for overflow and backup items.'},
-  {ico:'↔️',ft:'Right-side open space',fd:'Assign to daily-use items.'},
-  {ico:'↕️',ft:'Unused vertical space',fd:'Stack cans by type to reclaim height.'},
-  {ico:'⬇️',ft:'Lower shelf',fd:'Move heavy items here for stability.'},
-  {ico:'⛔',ft:'Keep one zone empty',fd:'Leave room near the front for daily access.'}
+  {ico:SVG.shoppingBag,ft:'Reuse: 2 baskets',fd:'Use these for snacks and breakfast items.'},
+  {ico:SVG.archive,ft:'Reuse: deep bin',fd:'Use for overflow and backup items.'},
+  {ico:SVG.arrowsH,ft:'Right-side open space',fd:'Assign to daily-use items.'},
+  {ico:SVG.arrowsV,ft:'Unused vertical space',fd:'Stack cans by type to reclaim height.'},
+  {ico:SVG.arrowDownCircle,ft:'Lower shelf',fd:'Move heavy items here for stability.'},
+  {ico:SVG.minusCircle,ft:'Keep one zone empty',fd:'Leave room near the front for daily access.'}
 ];
 const STEPS = [
   {t:'Remove expired or duplicate items first',m:'10 min',w:'This creates space before reorganizing anything.'},
@@ -772,13 +862,13 @@ const STEPS = [
   {t:'Take a final photo',m:'2 min',w:'This helps track progress and compare before / after.'}
 ];
 const UPGRADES = [
-  {pic:'🫙',h:'Clear stackable bins for snacks',why:'Corrals loose packets and makes snacks visible at a glance.',where:'Eye-level shelf',cost:'$24',dim:true},
-  {pic:'🥫',h:'Tiered can organizer',why:'Lets you see every can without digging — reclaims hidden depth.',where:'Middle shelf',cost:'$18',dim:true},
-  {pic:'🔄',h:'Lazy Susan for sauces',why:'Spin to reach bottles in the back of a deep shelf.',where:'Middle shelf / corner',cost:'$14',dim:false},
-  {pic:'🌶️',h:'Door-mounted spice rack',why:'Frees shelf space and keeps spices visible.',where:'Pantry door',cost:'$22',dim:true},
-  {pic:'📐',h:'Shelf riser',why:'Turns unused vertical space into a second usable level.',where:'Above the cans',cost:'$16',dim:true},
-  {pic:'🧂',h:'Airtight containers for baking',why:'Keeps flour, sugar, and grains fresh and uniform.',where:'Baking zone',cost:'$28',dim:false},
-  {pic:'🏷️',h:'Label set',why:'Makes the system easy to maintain for the whole household.',where:'Every zone',cost:'$9',dim:false}
+  {pic:SVG.box,h:'Clear stackable bins for snacks',why:'Corrals loose packets and makes snacks visible at a glance.',where:'Eye-level shelf',cost:'$24',dim:true},
+  {pic:SVG.barChart,h:'Tiered can organizer',why:'Lets you see every can without digging — reclaims hidden depth.',where:'Middle shelf',cost:'$18',dim:true},
+  {pic:SVG.refreshCw,h:'Lazy Susan for sauces',why:'Spin to reach bottles in the back of a deep shelf.',where:'Middle shelf / corner',cost:'$14',dim:false},
+  {pic:SVG.layoutGrid,h:'Door-mounted spice rack',why:'Frees shelf space and keeps spices visible.',where:'Pantry door',cost:'$22',dim:true},
+  {pic:SVG.trendingUp,h:'Shelf riser',why:'Turns unused vertical space into a second usable level.',where:'Above the cans',cost:'$16',dim:true},
+  {pic:SVG.lock,h:'Airtight containers for baking',why:'Keeps flour, sugar, and grains fresh and uniform.',where:'Baking zone',cost:'$28',dim:false},
+  {pic:SVG.tag,h:'Label set',why:'Makes the system easy to maintain for the whole household.',where:'Every zone',cost:'$9',dim:false}
 ];
 const SHOPPING = [
   ['4 clear stackable bins','$24'],['2 lazy Susans','$26'],['1 tiered can organizer','$18'],
@@ -799,13 +889,17 @@ const CUSTOMIZE = [
   ['rmprod','Remove storage product recommendations','Turns off the optional upgrade plan.']
 ];
 const SAVE_OPTS = [
-  ['💾','Save plan'],['⬇️','Download checklist'],['📤','Send shopping list'],
-  ['🔁','Start another space'],['🪞','Compare before &amp; after'],['📅','Schedule a session'],
-  ['👨‍👩‍👧','Share with family / roommate']
+  [SVG.bookmark,'Save plan'],
+  [SVG.download,'Download checklist'],
+  [SVG.send,'Send shopping list'],
+  [SVG.refreshCw,'Start another space'],
+  [SVG.columns,'Compare before &amp; after'],
+  [SVG.calendar,'Schedule a session'],
+  [SVG.users,'Share with family / roommate']
 ];
 const FB_USEFUL = ['Not useful','Somewhat useful','Very useful','I would pay for this'];
-const FB_VS = ['Yes, I want instructions','I mostly want the final image','I want both','I&rsquo;m not sure'];
-const FB_NEXT = ['Pantry','Closet','Garage','Attic','Kitchen cabinets','Laundry room','Kids&rsquo; room','Bathroom storage','Other'];
+const FB_VS = ['Yes, I want instructions','I mostly want the final image','I want both','I’m not sure'];
+const FB_NEXT = ['Pantry','Closet','Garage','Attic','Kitchen cabinets','Laundry room','Kids’ room','Bathroom storage','Other'];
 
 /* ============================================================
    Flow / routing
@@ -936,7 +1030,7 @@ function renderCaptureDetail(id){
     d.innerHTML=`
     <div class="card pad">
       <div style="border:2px dashed var(--line-2);border-radius:12px;padding:26px;text-align:center;background:var(--surface-2)">
-        <div style="font-size:30px">📷</div>
+        <div style="color:var(--primary)">${SVG.cameraBig}</div>
         <div style="font-weight:600;margin-top:6px">Drop 3&ndash;5 photos here</div>
         <div class="small muted">or tap to choose from your library</div>
         <button class="btn btn-ghost btn-sm" style="margin-top:14px" onclick="mockUpload(this)">Choose photos</button>
@@ -955,7 +1049,7 @@ function renderCaptureDetail(id){
     d.innerHTML=`
     <div class="card pad">
       <div style="border:2px dashed var(--line-2);border-radius:12px;padding:26px;text-align:center;background:var(--surface-2)">
-        <div style="font-size:30px">🎥</div>
+        <div style="color:var(--primary)">${SVG.videoBig}</div>
         <div style="font-weight:600;margin-top:6px">Record or upload a short video</div>
         <div class="small muted">We&rsquo;ll extract key frames to understand the space</div>
         <button class="btn btn-ghost btn-sm" style="margin-top:14px" onclick="mockUpload(this,true)">Choose video</button>
@@ -968,7 +1062,7 @@ function renderCaptureDetail(id){
     </div>`;
   }else{
     d.innerHTML=`
-    <div class="card pad" style="background:var(--sage-bg);border-color:var(--sage-line)">
+    <div class="card pad" style="background:var(--primary-bg);border-color:var(--primary-line)">
       <div style="font-weight:600">Using the demo pantry</div>
       <p class="small" style="margin:6px 0 0;color:var(--ink-2)">We&rsquo;ll load a sample messy pantry with realistic detected items and features so you can see the full plan. Tap Continue.</p>
     </div>`;
@@ -977,7 +1071,7 @@ function renderCaptureDetail(id){
 function mockUpload(btn,video){
   const tg=document.getElementById('mock-photos');
   const names=video?['clip-1.mp4']:['shelf-front.jpg','left-side.jpg','right-side.jpg','top-shelf.jpg'];
-  tg.innerHTML=names.map(n=>`<span class="tag green">✓ ${n}</span>`).join('');
+  tg.innerHTML=names.map(n=>`<span class="tag green">${SVG.check.replace('stroke-width="3"','stroke-width="2" width="12" height="12"')} ${n}</span>`).join('');
   btn.textContent=video?'Replace video':'Add more';
 }
 
@@ -1044,7 +1138,7 @@ function runLoading(){
     row.innerHTML=`<span class="dot">${ICON.check}</span><span>${l}</span>`;
     wrap.appendChild(row);
   });
-  // video → show frames after the "extracting" step
+  // video -> show frames after the "extracting" step
   if(state.capture==='video'){
     fw.classList.remove('hide');
     const f=document.getElementById('frames'); f.innerHTML='';
@@ -1093,8 +1187,8 @@ function buildReview(){
 }
 function markFeat(i,act,btn){
   const card=document.getElementById('rf-'+i);
-  card.style.borderColor='var(--sage)'; card.style.background='var(--sage-bg)';
-  btn.classList.add('mark'); btn.style.background='var(--sage)'; btn.style.color='#fff'; btn.style.borderColor='var(--sage)';
+  card.style.borderColor='var(--primary)'; card.style.background='var(--primary-bg)';
+  btn.classList.add('mark'); btn.style.background='var(--primary)'; btn.style.color='#fff'; btn.style.borderColor='var(--primary)';
 }
 function removeFeat(i){
   const card=document.getElementById('rf-'+i);
@@ -1172,7 +1266,7 @@ function buildResults(){
   document.getElementById('res-upgrades').innerHTML=UPGRADES.map(u=>`
     <div class="prod"><span class="pic">${u.pic}</span>
       <div><h4>${u.h}</h4><div class="pwhy">${u.why}</div>
-        <div class="pmeta"><span>📍 ${u.where}</span><span>${u.dim?'📏 Measure first':'✓ No dimensions needed'}</span></div>
+        <div class="pmeta"><span>${SVG.mapPin} ${u.where}</span><span>${u.dim?SVG.ruler+' Measure first':SVG.check.replace('stroke-width="3"','stroke-width="2" width="12" height="12"')+' No dimensions needed'}</span></div>
       </div>
       <span class="cost">${u.cost}</span>
     </div>`).join('');
@@ -1189,7 +1283,7 @@ function renderSteps(list){
       <div>
         <div class="num">Step ${i+1}</div>
         <div class="tname">${s.t}</div>
-        <div class="meta"><span class="time">⏱ ${s.m}</span></div>
+        <div class="meta"><span class="time">${SVG.clock} ${s.m}</span></div>
         <div class="why2"><strong>Why:</strong> ${s.w}</div>
         <div class="acts">
           <button class="mark" onclick="toggleStep(${i})">Mark complete</button>
@@ -1205,7 +1299,7 @@ function renderSteps(list){
 function toggleStep(i){
   state.stepDone[i]=!state.stepDone[i];
   document.getElementById('task-'+i).classList.toggle('done',state.stepDone[i]);
-  document.querySelector('#task-'+i+' .mark').textContent=state.stepDone[i]?'Completed ✓':'Mark complete';
+  document.querySelector('#task-'+i+' .mark').textContent=state.stepDone[i]?'Completed':'Mark complete';
   updateProgress();
 }
 function skipStep(i){
@@ -1255,9 +1349,9 @@ function applyCustomize(id,t,d,b,wrap){
     renderSteps(STEPS);
   }
   const r=document.getElementById('customize-result'); r.classList.remove('hide');
-  r.innerHTML=`<div class="card pad" style="background:var(--sage-bg);border-color:var(--sage-line)">
+  r.innerHTML=`<div class="card pad" style="background:var(--primary-bg);border-color:var(--primary-line)">
     <div style="font-weight:600">Plan revised: ${t}</div>
-    <p class="small" style="margin:6px 0 14px;color:var(--ink-2)">${d} We&rsquo;ve updated your move-by-move plan${state.upgrades?' and turned on optional upgrades':''}.</p>
+    <p class="small" style="margin:6px 0 14px;color:var(--ink-2)">${d} We’ve updated your move-by-move plan${state.upgrades?' and turned on optional upgrades':''}.</p>
     <button class="btn btn-primary btn-sm" onclick="go('results')">View updated plan</button>
   </div>`;
   toast('Plan updated');
