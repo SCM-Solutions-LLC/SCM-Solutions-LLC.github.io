@@ -307,6 +307,25 @@ textarea{resize:vertical;min-height:84px}
 .after-tab{font-size:13px;font-weight:500;border:1.5px solid var(--line-2);background:var(--surface);border-radius:999px;padding:8px 14px;color:var(--ink-2);transition:.14s}
 .after-tab.sel{background:var(--ink);border-color:var(--ink);color:#fff}
 .after-stage{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+/* illustrated "after" cabinet */
+.ba .after{background:var(--surface)}
+@media(max-width:560px){.ba{grid-template-columns:1fr}.ba .before{border-right:none;border-bottom:1px solid var(--line)}}
+.cab{display:grid;gap:6px;background:linear-gradient(180deg,var(--surface-3),var(--surface-2));border-radius:9px;padding:7px}
+.cab-shelf{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 9px;position:relative}
+.cab-shelf.eye{border-color:var(--primary-line);box-shadow:0 0 0 1px var(--primary-line)}
+.cab-shelf.kid{border-color:var(--good);box-shadow:0 0 0 1px color-mix(in oklch,var(--good) 50%,transparent)}
+.cab-lv{font-family:var(--mono);font-size:8.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.cab-tag{font-family:var(--mono);font-size:8px;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:1px 5px;flex:none}
+.cab-tag.eyet{color:var(--primary-2);background:var(--primary-bg);border:1px solid var(--primary-line)}
+.cab-tag.kidt{color:var(--good);background:color-mix(in oklch,var(--good) 12%,transparent);border:1px solid color-mix(in oklch,var(--good) 35%,transparent)}
+.cab-row{display:flex;flex-wrap:wrap;gap:5px}
+.cab-item{font-size:10.5px;font-weight:500;line-height:1.15;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:6px;padding:5px 7px;display:flex;align-items:center;gap:5px;max-width:100%}
+.cab-item .sw{width:7px;height:7px;border-radius:2px;flex:none}
+.cab-item .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:90px}
+.cab-item.bin{background:var(--primary-bg);border-color:var(--primary-line);color:var(--primary-2)}
+.cab-item.bin .sw{border-radius:1px}
+.cab-item svg{width:11px;height:11px;flex:none;opacity:.7}
+.cab-item .lbl{font-family:var(--mono);font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);border:1px dashed var(--line-2);border-radius:3px;padding:0 3px;margin-left:2px}
 .ba{display:grid;grid-template-columns:1fr 1fr}
 .ba > div{padding:14px}
 .ba .ba-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
@@ -605,19 +624,20 @@ textarea{resize:vertical;min-height:84px}
   <div class="steps" id="res-steps"></div>
 
   <!-- F. Before/After -->
-  <div class="section-head"><span class="eyebrow">Before &amp; after</span><h3 style="margin-top:4px">Before / after preview</h3></div>
+  <div class="section-head"><span class="eyebrow">Before &amp; after</span><h3 style="margin-top:4px">What it could look like</h3>
+    <p class="small muted" style="margin-top:6px">An illustrated layout of the recommended plan &mdash; each shelf as a labelled zone.</p></div>
   <div class="after-tabs" id="after-tabs"></div>
   <div class="after-stage">
     <div class="ba">
-      <div class="before"><div class="ba-h">Before</div>
+      <div class="before"><div class="ba-h">Before &middot; today</div>
         <div class="pantry-vis messy"><div class="row"><b></b><b></b><b></b><b></b></div><div class="row"><b></b><b></b></div><div class="row"><b></b><b></b><b></b></div><div class="row"><b></b></div><div class="row"><b></b><b></b><b></b><b></b></div></div>
       </div>
       <div class="after"><div class="ba-h" id="after-h">After &middot; Use existing containers</div>
-        <div class="pantry-vis tidy" id="after-vis"><div class="row"><b></b><b></b></div><div class="row"><b></b><b></b></div><div class="row"><b></b><b></b><b></b></div><div class="row"><b></b><b></b></div><div class="row"><b></b><b></b></div></div>
+        <div class="cab" id="after-cabinet"></div>
       </div>
     </div>
   </div>
-  <p class="note" style="margin-top:10px">This is a visual preview of the recommended organization plan. Your actual result may vary based on item sizes and available containers.</p>
+  <p class="note" style="margin-top:10px">This is an illustrated layout of the plan, not a photo of your space &mdash; it shows where each group of items should go. Actual fit varies with item sizes and containers.</p>
 
   <!-- G. Optional upgrades -->
   <div id="res-upgrades-wrap" class="hide">
@@ -1612,15 +1632,37 @@ function updateProgress(){
   document.getElementById('prog-pct').textContent=pct+'%';
   document.getElementById('prog-bar').style.width=pct+'%';
 }
+const AFTER_PALETTE=['oklch(0.72 0.12 35)','oklch(0.74 0.11 70)','oklch(0.64 0.08 150)','oklch(0.62 0.09 235)','oklch(0.66 0.10 300)','oklch(0.68 0.11 110)'];
+function activeMap(){ return (state.ai && state.ai.map && state.ai.map.length) ? state.ai.map : MAP; }
+function parseZone(z){ return String(z||'').split(/[·•,;]|\s\/\s/).map(s=>s.trim()).filter(Boolean); }
 function renderAfter(mode){
   document.getElementById('after-h').textContent='After · '+mode;
-  const vis=document.getElementById('after-vis');
-  // tweak visual density per mode
-  const rows={
-    'Use existing containers':[2,2,3,2,2],'Minimal look':[1,2,2,1,2],'More bins':[3,3,3,3,3],
-    'More labels':[2,2,3,2,2],'Kid-friendly setup':[2,2,2,3,3],'Hidden storage':[1,1,2,1,1]
-  }[mode]||[2,2,3,2,2];
-  vis.innerHTML=rows.map(n=>`<div class="row">${'<b></b>'.repeat(n)}</div>`).join('');
+  const cab=document.getElementById('after-cabinet');
+  const map=activeMap();
+  let colorI=0;
+  cab.innerHTML=map.map((m,ri)=>{
+    let items=parseZone(m.zone);
+    const isLast=ri===map.length-1;
+    let shelfCls='', tag='';
+    if(m.eye){ shelfCls=' eye'; tag='<span class="cab-tag eyet">eye level</span>'; }
+    if(mode==='Minimal look') items=items.slice(0,2);
+    if(mode==='Kid-friendly setup' && isLast){ shelfCls=' kid'; tag='<span class="cab-tag kidt">kid reach</span>'; }
+    let row;
+    if(mode==='Hidden storage'){
+      const n=Math.max(1,Math.ceil(items.length/2));
+      row=Array.from({length:n}).map(()=>`<span class="cab-item bin">${SVG.shoppingBag}<span class="nm">Basket</span></span>`).join('');
+    }else{
+      row=items.map(it=>{
+        const c=AFTER_PALETTE[(colorI++)%AFTER_PALETTE.length];
+        const bin=(mode==='More bins');
+        const label=(mode==='More labels')?`<span class="lbl">${escapeHtml(it).slice(0,10)}</span>`:'';
+        const lead=bin?SVG.archive:`<span class="sw" style="background:${c}"></span>`;
+        return `<span class="cab-item${bin?' bin':''}">${lead}<span class="nm">${escapeHtml(it)}</span>${label}</span>`;
+      }).join('');
+    }
+    if(!row) row='<span class="cab-item"><span class="nm" style="color:var(--ink-3)">&mdash;</span></span>';
+    return `<div class="cab-shelf${shelfCls}"><div class="cab-lv"><span>${escapeHtml(m.lv)}</span>${tag}</div><div class="cab-row">${row}</div></div>`;
+  }).join('');
 }
 function setUpgrades(on){
   state.upgrades=on;
